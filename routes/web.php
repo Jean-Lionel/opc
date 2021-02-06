@@ -24,3 +24,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 
 Route::resource('people', PersonController::class);
+Route::get('paiment', [PersonController::class , 'paiment'])->name('paiment');

@@ -1,19 +1,25 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Sidebar 02</title>
+    <title>OPC</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-  
         @livewireStyles
         <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
     <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
+
+    <style>
+      body{
+        background: #abc;
+        font-size: 1.2rem;
+        color: black;
+      }
+    </style>
 
 
   </head>
@@ -44,6 +50,10 @@
             </li>
             <li>
                <a href="{{ route('people.index') }}">Membres</a>
+            </li>
+
+            <li>
+               <a href="{{ route('paiment') }}">Paiment</a>
             </li>
             <li>
               <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>

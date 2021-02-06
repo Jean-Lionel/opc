@@ -1,0 +1,81 @@
+<?php
+
+namespace App\Http\Livewire;
+
+use App\Models\Compte;
+use App\Models\Paiment;
+use Livewire\Component;
+use Illuminate\Support\Facades\DB;
+
+class PaimentLivewire extends Component
+{
+
+	public $montant;
+	public $compteName;
+	public $person_id;
+	public $compte_id;
+	public $type_cotisation;
+
+	public $compte;
+
+    public function render()
+    {
+    	$paiments = Paiment::all();
+        return view('livewire.paiment-livewire',['paiments' => $paiments]);
+    }
+
+    protected $rules = [
+    	'montant' => 'required|numeric|min:0'
+    ];
+
+    public function updatedCompteName($val){
+    	
+    	$this->compte = Compte::where('name','=',$val)->first();
+    }
+
+    public function savePaiment(){
+
+    	$this->validate();
+
+    	try {
+
+    		DB::beginTransaction();
+
+    		Paiment::create([
+
+    			'montant' => $this->montant,
+    			'compte_name' => $this->compte->name,
+    			'compte_id' => $this->compte->id,
+    			'person_id' => $this->compte->person->id,
+    			'type_cotisation' => 'INSCRIPTION',
+    			'transaction_code' => $this->generateTransactionCode()
+
+    		]);
+
+    		DB::commit();
+
+    		$this->reset();
+    		
+    	} catch (\Exception $e) {
+    		BD::rollback();
+    		dump($e->getMessage());
+    		
+    	}
+
+    }
+
+    private function generateTransactionCode() : string
+    {
+    	//this will generate 15 random number 
+    	
+    	$code = $comp = str_pad(rand(0,999999999999), 15,0,  STR_PAD_LEFT);
+
+    	while (Paiment::where('transaction_code','=',$code )->first()) {
+    		# code...
+    		$code = $comp = str_pad(rand(0,999999999999), 15,0,  STR_PAD_LEFT);
+    	}
+
+    	return $code;
+
+    }
+}

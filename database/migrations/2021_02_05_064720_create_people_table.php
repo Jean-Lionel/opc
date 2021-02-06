@@ -18,8 +18,12 @@ class CreatePeopleTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('addresse');
+            $table->string('sexe')->nullable();
+            $table->string('email')->nullable();
             $table->string('telephone')->nullable();
             $table->string('type_personne');
+            $table->string('type_enregistrement')->nullable();
+            $table->string('valider')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

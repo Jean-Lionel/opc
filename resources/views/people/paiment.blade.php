@@ -3,7 +3,7 @@
 @section('content')
 
 <div>
-	<livewire:person-livewire />
+	<livewire:paiment-livewire/>
 </div>
 
 
