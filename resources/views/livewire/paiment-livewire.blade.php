@@ -51,10 +51,36 @@
     			</div>
     		
     	</div>
-    	<div class="col-md-8">B
+    	<div class="col-md-8">
+    		<table class="tab-content table table-hover">
+                <thead>
+                    <tr>
+                        <th>N°</th>
+                        <th>CODE DE TRANSACTION</th>
+                        <th>NOM ET PRENOM</th>
+                        <th>MONTANT</th>
+                        <th>COMPTE</th>
+                        <th>TYPE DE COTISATION</th>
+                        <th>ACTION</th>
+                    </tr>
+                </thead>
 
-    		{{ 
-    		$paiments }}
+                <tbody>
+                    @foreach($paiments as $paiment)
+                    <tr>
+                        <td>{{ $paiment->id  }}</td>
+                        <td>{{ $paiment->transaction_code }}</td>
+                        <td>{{ $paiment->person->fullName }}</td>
+                        <td>{{ number_format($paiment->montant) }}</td>
+                        <td>{{ $paiment->compte_name }}</td>
+                        <td>{{ $paiment->type_cotisation }}</td>
+                        
+                    </tr>
+
+                    @endforeach
+                </tbody>
+
+            </table>
 
 
     	</div>

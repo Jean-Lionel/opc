@@ -20,6 +20,10 @@ class PersonLivewire extends Component
 	public $sexe;
 	public $email;
 	public $searchKey;
+    public $nif;
+    public $debut_activite;
+    public $table_name;
+
 
 	public function mount(){
 		
@@ -30,8 +34,7 @@ class PersonLivewire extends Component
     	$searchKey =  '%'.$this->searchKey.'%';
 
     	$personnes = Person::where(function($query) use($searchKey){
-    		$query->where('first_name','like',$searchKey)
-    			  ->orWhere('last_name','like', $searchKey);
+    		$query->where('first_name','like',$searchKey);
 
     	})->latest()->paginate();
     	
@@ -43,13 +46,14 @@ class PersonLivewire extends Component
 
     protected $rules = [
     	'first_name' => 'required',
-    	'last_name' => 'required',
     	'addresse' => 'required',
     	'telephone' => 'required',
     	'type_personne' => 'required',
     	'sexe' => 'required',
     	'email' => 'required',
-
+        'nif' => 'required',
+        'debut_activite' => 'required',
+        'table_name' => 'required',
     ];
 
     public function savePersonne(){
@@ -59,16 +63,15 @@ class PersonLivewire extends Component
     		DB::beginTransaction();
 
     		$personne = Person::create([
-
     			'first_name' => $this->first_name,
-    			'last_name' => $this->last_name,
     			'addresse' => $this->addresse,
     			'telephone' => $this->telephone,
     			'type_personne' => $this->type_personne,
     			'email' => $this->email,
     			'sexe' => $this->sexe,
-
-
+                'nif' => $this->nif,
+                'debut_activite' => $this->debut_activite,
+                'table_name' => $this->table_name,
     		]);
 
     		Compte::create([

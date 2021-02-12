@@ -37,7 +37,7 @@
           <h1><a href="index.html" class="logo">OPC</a></h1>
           <ul class="list-unstyled components mb-5">
             <li class="active">
-              <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+              <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> <i class="   fa fa-header"></i> Home</a>
               <ul class="collapse list-unstyled" id="homeSubmenu">
                 
                 <li>
@@ -49,11 +49,11 @@
               </ul>
             </li>
             <li>
-               <a href="{{ route('people.index') }}">Membres</a>
+               <a href="{{ route('people.index') }}"> <i class="fa fa-users"></i> Membres</a>
             </li>
 
             <li>
-               <a href="{{ route('paiment') }}">Paiment</a>
+               <a href="{{ route('paiment') }}"> <i class="fa fa-dollar"></i> Paiment</a>
             </li>
             <li>
               <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>

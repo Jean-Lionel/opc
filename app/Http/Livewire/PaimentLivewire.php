@@ -15,12 +15,19 @@ class PaimentLivewire extends Component
 	public $person_id;
 	public $compte_id;
 	public $type_cotisation;
-
 	public $compte;
+    public $searchValue;
 
     public function render()
     {
-    	$paiments = Paiment::all();
+        $keySearch = $this->searchValue;
+
+    	// $paiments = Paiment::where(function($query) use ($keySearch){
+     //        $query->where('transaction_code','=',$keySearch);
+
+     //    })->latest()->paginate();
+     
+        $paiments = Paiment::latest()->paginate();
         return view('livewire.paiment-livewire',['paiments' => $paiments]);
     }
 

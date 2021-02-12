@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Person;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Paiment extends Model
 {
@@ -21,5 +22,9 @@ class Paiment extends Model
     		$model->user_id = Auth::user()->id ?? 0;
 
     	});
+    }
+
+    public function person(){
+    	return $this->belongsTo(Person::class);
     }
 }
