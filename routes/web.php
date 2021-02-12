@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\PersonController;
+use App\Http\Controllers\MemberList;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PersonController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +28,7 @@ Route::middleware(['auth:sanctum'])->group(function(){
 
 });
 
+Route::get('member-list', [MemberList::class, 'index'])->name('person-list');
+
+Route::get('register-member',[MemberList::class, 'create'])->name('register-member');
+Route::post('register-member',[MemberList::class, 'store'])->name('register-member');

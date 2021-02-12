@@ -36,7 +36,7 @@
         <div class="p-4 pt-5">
           <h1><a href="index.html" class="logo">OPC</a></h1>
           <ul class="list-unstyled components mb-5">
-            <li class="active">
+           {{--  <li class="active">
               <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> <i class="   fa fa-header"></i> Home</a>
               <ul class="collapse list-unstyled" id="homeSubmenu">
                 
@@ -47,7 +47,12 @@
                     <a href="#">Home 3</a>
                 </li>
               </ul>
+            </li> --}}
+
+            <li>
+               <a href="{{ route('people.index') }}"> <i class="fa fa-users"></i> Home</a>
             </li>
+
             <li>
                <a href="{{ route('people.index') }}"> <i class="fa fa-users"></i> Membres</a>
             </li>
@@ -55,25 +60,20 @@
             <li>
                <a href="{{ route('paiment') }}"> <i class="fa fa-dollar"></i> Paiment</a>
             </li>
+            
             <li>
-              <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-              <ul class="collapse list-unstyled" id="pageSubmenu">
-                <li>
-                    <a href="#">Page 1</a>
-                </li>
-                <li>
-                    <a href="#">Page 2</a>
-                </li>
-                <li>
-                    <a href="#">Page 3</a>
-                </li>
-              </ul>
+              <a href="{{ route('person-list') }}"> <i class="fa fa-users"></i> Liste des Membres</a>
             </li>
             <li>
-              <a href="#">Portfolio</a>
+              <a href="{{ route('register-member') }}">File Enregistrement</a>
             </li>
-            <li>
+
+             <li>
               <a href="#">Contact</a>
+            </li>
+
+            <li>
+              
             </li>
           </ul>
 
