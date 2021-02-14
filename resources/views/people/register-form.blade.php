@@ -6,11 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Enregistrement dans l'opc</title>
 
-    <!-- Font Icon -->
-    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+       <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
 
+    <!-- Font Icon -->
+   
     <!-- Main css -->
-    <link rel="stylesheet" href="css/register.css">
+   {{--  <link rel="stylesheet" href="css/register.css"> --}}
 </head>
 <body>
 
@@ -20,62 +21,144 @@
         <section class="signup">
             <div class="container">
                 <div class="signup-content">
-                    <div class="signup-form">
-                        <h2 class="form-title">IDENTIFICATION</h2>
-                        <form method="POST"  action="{{ route('register-member') }}" class="register-form" id="register-form">
-                            @method('post')
-                            @csrf
-                            <div class="form-group">
-                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="name" id="name" placeholder="Nom et Prénom"/>
-                            </div>
-
-                             <div class="form-group">
-                                <label for="telephone"><i class="zmdi zmdi-email"></i></label>
-                                <input type="email" name="telephone" id="telephone" placeholder="TELEPHONE ex : +257 79 000 000"/>
-                            </div>
+        
 
 
-                            <div class="form-group">
-                                <label for="email"><i class="zmdi zmdi-email"></i></label>
-                                <input type="email" name="email" id="email" placeholder="Your Email"/>
-                            </div>
+                 <div class="row">
 
-                            <div class="form-group">
-                                <label for="addresse"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="addresse" id="addresse" placeholder="Adresse : ex Province/Commune/Quartier"/>
-                            </div>
 
-                            <div class="form-group">
-                                <label for="addresse"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="addresse" id="addresse" placeholder="Adresse : ex Province/Commune/Quartier"/>
-                            </div>
+         <div class="col-md-6">
+            <h4 class="text-center">Enregistrer un Nouveau Membre</h4>
+            <form action="{{ route('register-member') }}" method="post">
 
-                            <div class="form-group">
-                                <label for="nif"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="nif" id="nif" placeholder="NIF"/>
-                            </div>
+                @method('post')
+                @csrf
+                <div class="form-group">
+                    <label for="">Nom et Prénom</label>
+                    <input class="form-control" type="text" name="first_name">
+                    @error('first_name')
+                    <span class="error text-danger">{{ $message }}</span>
 
-                              <div class="form-group">
-                                <label for="debut_activite"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="date" name="debut_activite" id="debut_activite" placeholder="DEBUT D'ACTIVITE"/>
-                            </div>
+                    @enderror
+                </div>
 
-                           
-                            <div class="form-group">
-                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-                                <label for="agree-term" class="label-agree-term"><span><span></span></span>J'accepte  </label>
-                            </div>
-                            <div class="form-group form-button">
-                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
-                            </div>
-                        </form>
-                    </div>
-                
-                 <div class="signup-image">
+
+
+                <div class="form-group">
+                    <label for="">GENRE</label>
+                    <select name="" class="form-control" name="sexe" id="">
+                        <option value="">Choisissez</option>
+                        <option value="HOMME">HOMME</option>
+                        <option value="FEMME">FEMME</option>
+                    </select>
+
+                    @error('sexe')
+                    <span class="error text-danger">{{ $message }}</span>
+
+                    @enderror
+                </div>
+
+                <div class="form-group">
+                    <label for="">Province/Commune/Quartier</label>
+                    <input class="form-control" type="text" name="addresse" placeholder="ex: Bujumbura/Ntahangwa/Kigobe">
+
+                    @error('addresse')
+                    <span class="error text-danger">{{ $message }}</span>
+
+                    @enderror
+                </div>
+
+                <div class="form-group">
+                    <label for="">Téléphone</label>
+                    <input class="form-control" placeholder="ex: +257 79 000 000" type="text" name="telephone">
+
+                    @error('telephone')
+                    <span class="error text-danger">{{ $message }}</span>
+
+                    @enderror
+                </div>
+
+
+                <div class="form-group">
+                    <label for="">Tableau</label>
+
+                    <select name="table_name" name="" id="" class="form-control">
+                        <option value="">Select ...</option>
+                        <option value="A">TABLEAU A</option>
+                        <option value="B">TABLEAU B</option>
+                        <option value="C">TABLEAU C</option>
+                        <option value="D">TABLEAU D</option>
+                        <option value="ST">STAGAIERE</option>
+                        <option value="CABINET">CABINET</option>
+                    </select>
+                   
+                    @error('table_name')
+                    <span class="error text-danger">{{ $message }}</span>
+
+                    @enderror
+                </div>
+
+
+                  <div class="form-group">
+                    <label for="">NIF</label>
+                    <input type="text" name="nif" class="form-control">
+
+                    @error('nif')
+                    <span class="error text-danger">{{ $message }}</span>
+
+                    @enderror
+                </div>
+
+                 <div class="form-group">
+                    <label for="">DEBUT D'ACTIVITE</label>
+                    <input type="date" name="debut_activite" class="form-control">
+
+                    @error('debut_activite')
+                    <span class="error text-danger">{{ $message }}</span>
+
+                    @enderror
+                </div>
+               
+
+
+                <div class="form-group">
+                    <label for="">Email</label>
+                    <input class="form-control" placeholder="ex: exemple@emple.bi" type="email" name="email">
+
+                    @error('email')
+                    <span class="error text-danger">{{ $message }}</span>
+
+                    @enderror
+                </div>
+
+                <div class="form-group">
+                    <label for="">Type</label>
+
+                    <select class="form-control" id="" name="type_personne">
+                        <option value="">Select ...</option>
+
+                        <option value="ETUDIANT">ETUDIANT</option>
+                        <option value="MEMBRE">MEMBRE</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <button class=" btn-info btn">Enregistrer</button>
+                </div>
+
+            </form>
+            
+        </div>
+
+
+
+
+                 <div class="signup-image" class="col-md-6">
                         <figure><img src="images/signup-image.jpg" alt="sing up image"></figure>
-                        <a href="#" class="signup-image-link">Je suis déjà membre</a>
+                        <a href="{{ route('login') }}" class="signup-image-link">Je suis déjà membre</a>
                     </div>
+                </div>
+
                 </div>
 
 

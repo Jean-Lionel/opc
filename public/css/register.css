@@ -126,7 +126,7 @@ a:focus, a:active {
   -o-transition: all 300ms ease 0s;
   -ms-transition: all 300ms ease 0s; }
 
-input, select, textarea {
+input, textarea {
   outline: none;
   appearance: unset !important;
   -moz-appearance: unset !important;

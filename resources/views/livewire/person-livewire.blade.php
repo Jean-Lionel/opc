@@ -15,6 +15,19 @@ email --}}
     	<div class="col-md-3">
     		<h4 class="text-center">Enregistrer un Nouveau Membre</h4>
     		<form action="" wire:submit.prevent="savePersonne()">
+
+			
+
+			<div class="form-group">
+    				<label for="">Numéro d'ordre</label>
+    				<input class="form-control" type="text" wire:model="order_number">
+    				@error('order_number')
+    				<span class="error text-danger">{{ $message }}</span>
+
+    				@enderror
+    			</div>
+
+
     			<div class="form-group">
     				<label for="">Nom et Prénom</label>
     				<input class="form-control" type="text" wire:model="first_name">
@@ -70,7 +83,7 @@ email --}}
                         <option value="B">TABLEAU B</option>
                         <option value="C">TABLEAU C</option>
                         <option value="D">TABLEAU D</option>
-                        <option value="ST">STAGAIERE</option>
+                        <option value="S">STAGAIERE</option>
                         <option value="CABINET">CABINET</option>
                     </select>
                    
@@ -145,7 +158,8 @@ email --}}
     		<table class="table table-sm">
     			<thead>
     				<tr>
-                        <th>N°</th>
+                        <th>#</th>
+                        <th>No d'ordre</th>
     					<th>Nom et Prénom</th>
     					<th>Numéro</th>
     					<th>Téléphone</th>
@@ -159,18 +173,25 @@ email --}}
     			</thead>
 
     			<tbody>
-    				@foreach($personnes as $personne)
+    				@foreach($personnes as $key => $personne)
     				  <tr>
-                        <td>{{ $personne->id }}</td>
+                        <td>{{ ++$key }}</td>
+                        <td>{{ $personne->order_number }}</td>
     				  	<td>{{ $personne->first_name }}</td>
-    				  	<td>{{ $personne->compte->name }}</td>
+    				  	<td>{{ $personne->compte->name ?? "" }}</td>
     				  	<td>{{ $personne->telephone }}</td>
     				  	<td>{{ $personne->table_name }}</td>
                         <td>{{ $personne->nif }}</td>
     				  	<td>{{ $personne->addresse }}</td>
     				  	<td>{{ $personne->type_personne }}</td>
-    				  	<td>
-    				  		<button>Modifier</button>
+    				  	<td class="d-flex">
+    				  <button class="btn-sm btn-info" wire:click="modifierPersonne({{ $personne->id }})">Modifier</button>
+
+                       @if($personne->valider !='VALIDER')
+
+                      <button class="btn btn-info" wire:click="validerPersonner({{ $personne->id  }})">valider</button>
+                        @endif
+                            <button class="btn-sm btn-danger ml-3" wire:click="supprimerPersonne({{ $personne->id }})">Supprimer</button>
     				  	</td>
     				  </tr>
 

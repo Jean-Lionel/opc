@@ -1,0 +1,27 @@
+.content-principal table{
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 20px;
+
+}
+table , td ,th,td {
+	border: 1px solid black;
+	text-align: left;
+
+}
+
+table{
+	border-collapse: collapse;
+}
+
+.content-principal h1{
+	text-align: center;
+}
+#input-search,.content-principal select {
+
+	padding: 6px;
+	width: 400px;
+	margin-top: 8px;
+	margin-right: 16px;
+	font-size: 17px;
+}

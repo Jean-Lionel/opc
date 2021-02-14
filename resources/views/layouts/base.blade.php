@@ -50,7 +50,8 @@
             </li> --}}
 
             <li>
-               <a href="{{ route('people.index') }}"> <i class="fa fa-users"></i> Home</a>
+               <a href="{{ route('people.create') }}"> <i class="fa fa-users"></i> Membres agréés par
+l’OPC</a>
             </li>
 
             <li>
@@ -58,7 +59,11 @@
             </li>
 
             <li>
-               <a href="{{ route('paiment') }}"> <i class="fa fa-dollar"></i> Paiment</a>
+              <a href=""> Cabinets agréés par l’OPC</a>
+            </li>
+
+            <li>
+               <a href="{{ route('paiment') }}"> <i class="fa fa-dollar"></i> Paiements des Cotisations</a>
             </li>
             
             <li>
@@ -73,7 +78,15 @@
             </li>
 
             <li>
-              
+              <a href="{{ route('rapport') }}">Rapport</a>
+            </li>
+
+            <li>
+              <form action="{{ route('logout') }}" method="post">
+                @csrf
+                @method('post')
+                <button type="submit">Deconnexion</button>
+              </form>
             </li>
           </ul>
 
@@ -94,6 +107,9 @@
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/popper.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/print.min.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
+
+    @yield('script')
   </body>
 </html>

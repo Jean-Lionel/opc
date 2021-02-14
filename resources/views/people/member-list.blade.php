@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<title>Liste des membres de l'opc</title>
 
 	<style>
@@ -65,7 +65,7 @@
 				<select  id="" name="classement">
 					<option value="">Choisissez ici </option>
 					@if($classement)
-					 <option value="{{ $classement }}" selected="">{{ $classement }}</option>
+					<option value="{{ $classement }}" selected="">{{ $classement }}</option>
 					@endif
 					<option value="A">Table A</option>
 					<option value="B">Table B</option>
@@ -79,36 +79,70 @@
 				<button class="searchBtn" type="submit"> <i class="fa fa-search"></i> </button>
 			</form>
 		</div>
-		<table class="table">
-			<thead>
-				<tr>
-					<th>Nom et prénom</th>
-					<th>E-mail</th>
-					<th>Date d' Agrément</th>
-					<th>Classement</th>
-					<th>Téléphone</th>
-				</tr>
-			</thead>
+		<button id="btn_print">Imprimmer</button>
 
-			<tbody>
-				@foreach($people as $person)
-				<tr>
-					<td>{{ $person->first_name ?? "" }}</td>
-					<td>{{ $person->email ?? "" }}</td>
-					<td>{{ $person->debut_activite ?? "" }}</td>
-					<td>{{ $person->table_name ?? "" }}</td>
-					<td>{{ $person->telephone ?? "" }}</td>
+		<div id="print_doc">
+			
 
-				</tr>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Numéro d'Ordre</th>
+						<th>Nom et prénom</th>
+						<th>E-mail</th>
+						<th>Date d' Agrément</th>
+						<th>Classement</th>
+						<th>Téléphone</th>
+					</tr>
+				</thead>
 
-				@endforeach
-			</tbody>
+				<tbody>
+					@foreach($people as $person)
+					<tr>
+						<td>{{ $person->order_number }}</td>
+						<td>{{ $person->first_name ?? "" }}</td>
+						<td>{{ $person->email ?? "" }}</td>
+						<td>{{ $person->debut_activite ?? "" }}</td>
+						<td>{{ $person->table_name ?? "" }}</td>
+						<td>{{ $person->telephone ?? "" }}</td>
 
-		</table>
+					</tr>
+
+					@endforeach
+				</tbody>
+
+			</table>
+
+		</div>
 
 		{{ $people->links() }}
 
 	</div>
+
+	<script src="{{ asset('js/print.min.js') }}">
+		
+	</script>
+
+	<script>
+		const printDoc = document.getElementById("print_doc");
+		const btn_print = document.getElementById("btn_print");
+		console.log(btn_print)
+
+		btn_print.addEventListener('click',(e) =>{
+			e.preventDefault();
+			console.log('je suis un future milliardaire');
+
+			printJS({
+				printable : 'print_doc',
+				type : 'html',
+
+				css : "{{ asset('css/printdoc.css') }}"
+			})
+
+		})
+
+
+	</script>
 	
 </body>
-</html>
+</html> 

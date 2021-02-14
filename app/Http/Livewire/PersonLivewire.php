@@ -13,6 +13,7 @@ class PersonLivewire extends Component
 	use WithPagination;
 	protected $paginationTheme = 'bootstrap';
 	public $first_name;
+	public $order_number;
 	public $last_name;
 	public $addresse;
 	public $telephone;
@@ -23,6 +24,7 @@ class PersonLivewire extends Component
     public $nif;
     public $debut_activite;
     public $table_name;
+    public $identification;
 
 
 	public function mount(){
@@ -32,7 +34,7 @@ class PersonLivewire extends Component
     public function render()
     {
     	$searchKey =  '%'.$this->searchKey.'%';
-
+        
     	$personnes = Person::where(function($query) use($searchKey){
     		$query->where('first_name','like',$searchKey);
 
@@ -54,6 +56,7 @@ class PersonLivewire extends Component
         'nif' => 'required',
         'debut_activite' => 'required',
         'table_name' => 'required',
+        'order_number' => 'required',
     ];
 
     public function savePersonne(){
@@ -62,17 +65,42 @@ class PersonLivewire extends Component
     	try {
     		DB::beginTransaction();
 
-    		$personne = Person::create([
-    			'first_name' => $this->first_name,
-    			'addresse' => $this->addresse,
-    			'telephone' => $this->telephone,
-    			'type_personne' => $this->type_personne,
-    			'email' => $this->email,
-    			'sexe' => $this->sexe,
+            if($this->identification){
+                $personne = Person::find($this->identification);
+
+                $personne->update([
+
+                'first_name' => $this->first_name,
+                'addresse' => $this->addresse,
+                'telephone' => $this->telephone,
+                'type_personne' => $this->type_personne,
+                'email' => $this->email,
+                'sexe' => $this->sexe,
                 'nif' => $this->nif,
+                'order_number' => $this->order_number,
                 'debut_activite' => $this->debut_activite,
                 'table_name' => $this->table_name,
-    		]);
+
+
+                ]);
+
+            }else{
+                $personne = Person::create([
+                'first_name' => $this->first_name,
+                'addresse' => $this->addresse,
+                'telephone' => $this->telephone,
+                'type_personne' => $this->type_personne,
+                'email' => $this->email,
+                'sexe' => $this->sexe,
+                'nif' => $this->nif,
+                'order_number' => $this->order_number,
+                'debut_activite' => $this->debut_activite,
+                'table_name' => $this->table_name,
+            ]);
+
+            }
+
+    		
 
     		Compte::create([
     			'person_id' => $personne->id,
@@ -95,6 +123,35 @@ class PersonLivewire extends Component
 
     }
 
+    public function ibiKoVyanse($value='HAKCE')
+    {
+        # code...
+        dd($value);
+    }
+    public function modifierPersonne($id){
+       
+        $person = Person::find($id);
+
+        $this->identification = $person->id;
+        $this->first_name = $person->first_name;
+        $this->order_number = $person->order_number;
+        $this->telephone = $person->telephone;
+        $this->addresse = $person->addresse;
+        $this->type_personne = $person->type_personne;
+        $this->sexe = $person->sexe;
+        $this->nif = $person->nif;
+        $this->email = $person->email;
+        $this->debut_activite = $person->debut_activite;
+        $this->table_name = $person->table_name;
+    }
+
+    public function supprimerPersonne($value)
+    {
+        $personne = Person::find($value);
+        $personne->delete();
+        # code...
+    }
+
     private function generateCompte()
     {
     	$comp = str_pad(rand(0,999999), 6,0,  STR_PAD_LEFT);
@@ -105,5 +162,14 @@ class PersonLivewire extends Component
     	}
 
     	return $comp;
+    }
+
+    public function validerPersonner($id)
+    {
+        $personne = Person::find($id);
+
+        $personne->update(['valider' => 'VALIDER']);
+
+
     }
 }

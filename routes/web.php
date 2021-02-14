@@ -3,6 +3,7 @@
 use App\Http\Controllers\MemberList;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PersonController;
+use App\Http\Controllers\RapportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,14 +20,24 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+
+Route::get('/home', function () {
+    return view('auth.login');
+});
+
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //     return view('dashboard');
 // })->name('dashboard');
 Route::middleware(['auth:sanctum'])->group(function(){
+
 	Route::resource('people', PersonController::class);
+	
 	Route::get('paiment', [PersonController::class , 'paiment'])->name('paiment');
+	Route::get('rapport', [RapportController::class, 'index'] )->name('rapport');
 
 });
+
+
 
 Route::get('member-list', [MemberList::class, 'index'])->name('person-list');
 
