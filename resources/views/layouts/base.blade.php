@@ -81,6 +81,11 @@ l’OPC</a>
               <a href="{{ route('rapport') }}">Rapport</a>
             </li>
 
+
+            <li>
+              <a href="{{ route('users.index') }}">Utilisateur</a>
+            </li>
+
             <li>
               <form action="{{ route('logout') }}" method="post">
                 @csrf

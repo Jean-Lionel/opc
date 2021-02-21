@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\MemberList;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\RapportController;
 
@@ -34,6 +35,8 @@ Route::middleware(['auth:sanctum'])->group(function(){
 	
 	Route::get('paiment', [PersonController::class , 'paiment'])->name('paiment');
 	Route::get('rapport', [RapportController::class, 'index'] )->name('rapport');
+
+	Route::resource('users',UserController::class);
 
 });
 
