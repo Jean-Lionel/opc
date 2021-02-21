@@ -26,6 +26,14 @@ class PersonLivewire extends Component
     public $table_name;
     public $identification;
 
+    public $showForm = false;
+
+
+    public function toogleShowForm(){
+        $this->showForm = ! $this->showForm;
+
+    }
+
 
 	public function mount(){
 		

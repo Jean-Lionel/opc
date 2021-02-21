@@ -12,8 +12,11 @@ sexe
 email --}}
  
     	
+        @if($showForm)
     	<div class="col-md-3">
-    		<h4 class="text-center">Enregistrer un Nouveau Membre</h4>
+                 <h4 class="text-center">Enregistrer un Nouveau Membre </h4>
+            
+            
     		<form action="" wire:submit.prevent="savePersonne()">
 
 			
@@ -145,17 +148,26 @@ email --}}
     		
     	</div>
 
-    	<div class="col-md-9">
+        @endif
+
+    	<div class=" {{ $showForm ? 'col-md-9' : 'col-md-11' }}">
     		<div class="row">
-    			<div class="col">
+                <div class="col-2">
+
+                    <button wire:click="toogleShowForm">
+
+                        {{ $showForm ? 'X' : '+' }}
+
+                    </button></div>
+    			<div class="col-8">
     				<h4>Liste des membres déjà enregistrer</h4>
     			</div>
-    			<div class="col">
+    			<div class="col-2">
     				<input type="text" wire:model="searchKey" >
     			</div>
     		</div>
 
-    		<table class="table table-sm">
+    		<table class="table">
     			<thead>
     				<tr>
                         <th>#</th>

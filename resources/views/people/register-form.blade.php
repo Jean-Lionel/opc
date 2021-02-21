@@ -144,6 +144,9 @@
 
                 <div class="form-group">
                     <button class=" btn-info btn">Enregistrer</button>
+
+                    <a href="{{ route('people.index') }}" class=" btn-info btn">Retour</a>
+
                 </div>
 
             </form>

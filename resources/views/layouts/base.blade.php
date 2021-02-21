@@ -59,7 +59,7 @@ l’OPC</a>
             </li>
 
             <li>
-              <a href=""> Cabinets agréés par l’OPC</a>
+              <a href=""> <i class="  fa fa-certificate"></i> Cabinets agréés par l’OPC</a>
             </li>
 
             <li>
@@ -70,20 +70,20 @@ l’OPC</a>
               <a href="{{ route('person-list') }}"> <i class="fa fa-users"></i> Liste des Membres</a>
             </li>
             <li>
-              <a href="{{ route('register-member') }}">File Enregistrement</a>
+              <a href="{{ route('register-member') }}"> <i class="fa fa-file"></i> File Enregistrement</a>
             </li>
 
              <li>
-              <a href="#">Contact</a>
+              <a href="#"> <i class="fa fa-commenting"></i> Contact</a>
             </li>
 
             <li>
-              <a href="{{ route('rapport') }}">Rapport</a>
+              <a href="{{ route('rapport') }}"> <i class="fa fa-bar-chart"></i> Rapport</a>
             </li>
 
 
             <li>
-              <a href="{{ route('users.index') }}">Utilisateur</a>
+              <a href="{{ route('users.index') }}"> <i class="fa fa-user-md"></i>  Utilisateur</a>
             </li>
 
             <li>
