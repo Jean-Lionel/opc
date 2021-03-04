@@ -2,24 +2,13 @@
     {{-- Be like water. --}}
 
     <div class="row">
-{{-- 
-    	   	first_name
-last_name
-addresse
-telephone
-type_personne
-sexe
-email --}}
- 
-    	
+	
         @if($showForm)
     	<div class="col-md-3">
                  <h4 class="text-center">Enregistrer un Nouveau Membre </h4>
             
             
     		<form action="" wire:submit.prevent="savePersonne()">
-
-			
 
 			<div class="form-group">
     				<label for="">Numéro d'ordre</label>
@@ -167,7 +156,7 @@ email --}}
     			</div>
     		</div>
 
-    		<table class="table">
+    		<table class="table table-sm">
     			<thead>
     				<tr>
                         <th>#</th>

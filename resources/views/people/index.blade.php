@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div>
+<div class="">
 	<livewire:person-livewire />
 </div>
 

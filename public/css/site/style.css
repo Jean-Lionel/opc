@@ -92,7 +92,7 @@ body{
 /* end logo and search bar style */
 
 #head-menu{
-    min-height: 200px;
+    min-height: 150px;
     margin: auto;
     background-color: #7fff7b;
     
@@ -103,7 +103,7 @@ body{
     flex-direction: column;
     font-size: smaller;
     margin: auto;
-    padding-top: 40px;
+    padding-top: 5px;
 
 }
 
@@ -133,7 +133,7 @@ body{
     margin: auto;
 }
 .menu{
-    margin-top: 35px;
+    margin-top: 20px;
     display: flex;
     font-family: 'Montserrat' ,'Source Sans Pro', sans-serif;
     font-weight: 900;
@@ -152,6 +152,7 @@ body{
 .m-item a{
     text-decoration: none;
     color: #040041 ;
+    padding: 10px;
 }
 
 .m-item:hover .menu-items>a{
@@ -742,7 +743,7 @@ body{
   /* Slideshow container */
   .slideshow-container {
     /* max-width: 1000px; */
-    height: 700px;
+    
     overflow: hidden;
     max-width: 100%;
     position: relative;

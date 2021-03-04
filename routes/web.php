@@ -22,15 +22,14 @@ use Illuminate\Support\Facades\Route;
 //SITE ROUTER
 
 Route::get('site', [SiteController::class, 'index']);
+Route::get('create-member', [SiteController::class, 'createMember']) ;
 
-Route::get('/', function () {
+Route::get('/',[SiteController::class, 'index'])->name('accueil');
+
+
+Route::get('/login', function () {
     return view('auth.login');
-});
-
-
-Route::get('/home', function () {
-    return view('auth.login');
-});
+})->name('login');
 
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //     return view('dashboard');
