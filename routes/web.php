@@ -1,10 +1,11 @@
 <?php
 
 use App\Http\Controllers\MemberList;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\RapportController;
+use App\Http\Controllers\SiteController;
+use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,11 @@ use App\Http\Controllers\RapportController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+//SITE ROUTER
+
+Route::get('site', [SiteController::class, 'index']);
 
 Route::get('/', function () {
     return view('auth.login');
