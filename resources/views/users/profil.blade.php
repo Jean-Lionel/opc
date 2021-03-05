@@ -3,7 +3,7 @@
 @section('content')
 
 <div>
-	
+	<livewire:user-profil />
 	
 </div>
 
