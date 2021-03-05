@@ -15,15 +15,15 @@
 
     <style>
       body{
-        background: #abc;
-        font-size: 1.2rem;
+        background: #fff;
+        
         color: black;
       }
     </style>
 
 
   </head>
-  <body>
+  <body class="container-fluid ml-0">
     
     <div class="wrapper d-flex align-items-stretch">
       <nav id="sidebar">
@@ -34,7 +34,7 @@
           </button>
         </div>
         <div class="p-4 pt-5">
-          <h1><a href="index.html" class="logo">OPC</a></h1>
+          <h1><a href="/" class="logo">OPC</a></h1>
           <ul class="list-unstyled components mb-5">
            {{--  <li class="active">
               <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> <i class="   fa fa-header"></i> Home</a>
@@ -50,8 +50,7 @@
             </li> --}}
 
             <li>
-               <a href="{{ route('people.create') }}"> <i class="fa fa-users"></i> Membres agréés par
-l’OPC</a>
+               <a href="{{ route('people.create') }}"> <i class="fa fa-users"></i> Membres agréés par l’OPC</a>
             </li>
 
             <li>
@@ -99,8 +98,15 @@ l’OPC</a>
       </nav>
 
         <!-- Page Content  -->
-      <div id="content" class="p-4 p-md-5 pt-5">
+      <div id="content" class="p-4 p-md-0 pt-2  container-fluid">
+        <div class="mb-4" style="background: #deb509">
 
+          <div class="text-right">
+           <a href="#profile" class="mr-3 text-white"> <em class="fa fa-user"></em> <span>Welcome {{ Auth::user()->name }}</span> </a>
+           <a href="#" class="gwt-Anchor ml-2 text-white mr-1"><em class="fa fa-power-off"></em>  <span>LogOut</span></a>
+
+          </div>
+        </div>
         
 
         @yield('content')
