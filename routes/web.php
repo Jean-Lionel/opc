@@ -5,6 +5,7 @@ use App\Http\Controllers\PersonController;
 use App\Http\Controllers\RapportController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\UserController;
+use App\Mail\TestMail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +22,16 @@ use Illuminate\Support\Facades\Route;
 
 //SITE ROUTER
 
+Route::get('/send-email', function(){
+	$details = [
+		'title' => 'Mail from HACKER',
+		'body' => 'This is a simple email for jean lionel'
+
+	];
+	\Mail::to('nijeanlionel@gmail.com')->send(new TestMail($details));
+	echo "Email has been sent";
+
+});
 Route::get('site', [SiteController::class, 'index']);
 Route::get('create-member', [SiteController::class, 'createMember']) ;
 
