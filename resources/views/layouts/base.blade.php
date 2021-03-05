@@ -15,7 +15,7 @@
 
     <style>
       body{
-        background: #fff;
+        background: #f9f9f9;
         
         color: black;
       }
@@ -48,6 +48,10 @@
                 </li>
               </ul>
             </li> --}}
+
+            <li>
+              <a class="hand" href="{{ route('user-profil') }}"><i class="fa fa-user"></i> <span>Mon Profil</span></a>
+            </li>
 
             <li>
                <a href="{{ route('people.create') }}"> <i class="fa fa-users"></i> Membres agréés par l’OPC</a>

@@ -42,6 +42,7 @@ Route::middleware(['auth:sanctum'])->group(function(){
 	Route::get('rapport', [RapportController::class, 'index'] )->name('rapport');
 
 	Route::resource('users',UserController::class);
+	Route::get('user-profil', [UserController::class, 'userProfil'])->name('user-profil');
 
 });
 

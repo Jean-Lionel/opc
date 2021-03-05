@@ -1,4 +1,4 @@
-<div>
+<div class="container-fluid">
     {{-- Be like water. --}}
 
     <div class="row">
@@ -156,7 +156,7 @@
     			</div>
     		</div>
 
-    		<table class="">
+    		<table class="table-responsive">
     			<thead>
     				<tr>
                         <th>#</th>
