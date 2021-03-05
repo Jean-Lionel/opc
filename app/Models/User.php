@@ -62,4 +62,24 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    //CHECKING IF THE USER IS ADMIN
+
+    //['DEFAULT', 'ADMINISTRATEUR','SECRETAIRE', 'COMPTABLE']
+
+    public function isAdmin(){
+        return $this->role == 'ADMINISTRATEUR';
+    }
+
+    public function isSecretaire(){
+        return $this->role == 'SECRETAIRE';
+    }
+
+    public function isComptable(){
+        return $this->role == 'COMPTABLE';
+    }
+
+    public function isDefault(){
+        return $this->role == 'DEFAULT';
+    }
 }
