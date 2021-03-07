@@ -28,7 +28,7 @@ Route::get('/send-email', function(){
 		'body' => 'This is a simple email for jean lionel'
 
 	];
-	\Mail::to('nijeanlionel@gmail.com')->send(new TestMail($details));
+	\Mail::to('bigirimanajeanleonard@gmail.com')->send(new TestMail($details));
 	echo "Email has been sent";
 
 });

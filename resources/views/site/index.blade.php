@@ -46,7 +46,7 @@
 
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                   <li class="nav-item">
-                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Evenement</a>
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Evénement</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Les examens en ligne</a>
@@ -60,29 +60,35 @@
                     <!-- CONTENT -->
 
                          <div class="others-item">
-                                            <h5>Evénements & Agenda</h5>
-                                            <div class="box2">
-                                                <img src="images/OPC1-1.png" alt="">
-                                                <div class="box2-text">
-                                                    <h6>INVITATION A LA FORMATION</h6>
-                                                    <span> 12 November 2017</span>
-                                                </div>
-                                            </div>
-                                            <div class="box2">
-                                                <img src="images/OPC1-1.png" alt="">
-                                                <div class="box2-text">
-                                                    <h6>INVITATION A LA FORMATION</h6>
-                                                    <span> 12 November 2017</span>
-                                                </div>
-                                            </div>
-                                            <div class="box2">
-                                                <img src="images/OPC1-1.png" alt="">
-                                                <div class="box2-text">
-                                                    <h6>INVITATION A LA FORMATION</h6>
-                                                    <span> 12 November 2017</span>
-                                                </div>
-                                            </div>
-                                        </div>
+                           <h5>Evénements & Agenda</h5>
+                        
+                            <div>
+                                
+                                <dl class="row">
+                                    <dd class="col-sm-4">Du 1 au 2 avril 2021</dd>
+                                    <dt class="col-sm-8">Accouting Training</dt>
+                                    <hr>
+
+                                    <dd class="col-sm-4">Du 5 au 10 avril 2021</dd>
+                                    <dt class="col-sm-8">Finance </dt>
+                                    <hr>
+
+
+                                    <dd class="col-sm-4">Du 15 au 20 avril 2021</dd>
+                                    <dt class="col-sm-8">Business English </dt>
+                                    <hr>
+
+                                    <dd class="col-sm-4">Du 22 Mai au Juin 2021</dd>
+                                    <dt class="col-sm-8">IT / Program </dt>
+                                    <hr>
+                                    
+                                </dl>
+                            </div>
+
+
+                                           
+                                            
+                </div>
 
 
 
@@ -187,7 +193,7 @@
     </div>
     <div class="news">
         <div class="news-item">
-            <img src="images/conseil-national-opc.jpg" alt="">
+            {{-- <img src="images/conseil-national-opc.jpg" alt=""> --}}
             <div class="news-text">
                 <h6>CONSEIL NATIONAL DE L'ORDRE</h6>
                 <h4>Les membres du conseil National de l'Ordre</h4>

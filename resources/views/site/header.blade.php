@@ -46,13 +46,16 @@
                     <li class="m-item">A propos de nous<i class="fas fa-caret-down"></i>
                         <ul class="menu-items">
                             <li><a href="">Qui sommes-nous ? </a></li>
-                            <li><a href="">Le conseil</a></li>
+                            <li><a href="">Le conseil national d'ordre</a></li>
                             <li><a href="">Gestion</a></li>
                             <li><a href="">Rapport annuel</a></li>
                             <li><a href="">Partenariats et liens</a></li>
                             <li><a href="">Charte de science</a></li>
                             <li><a href="">Plan stratégique</a></li>
                             <li><a href="{{ route('person-list') }}">Membres de l'OPC</a></li>
+                            <li>
+                                <a href="{{ route('person-list') }}">Cabinet de l'OPC</a>
+                            </li>
 
                             <li><a href="">Comité</a></li>
                         </ul>
@@ -90,7 +93,6 @@
                         <ul class="menu-items">
 
                             <li><a href="">Formulaire</a></li>
-                            <li><a href="">FIchier Excel</a></li>
 
                         </ul>
                     </li>
