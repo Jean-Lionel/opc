@@ -29,11 +29,16 @@
                 <div>
                     <img src="images/OPC1-1.png" class="logo">
                 </div>
-                <div>
-                    <form action="" class="form-search">
+                <div style="font-size: 45px;">
+
+                    <span class="sr-facebook "><a rel="nofollow" href="http://facebook.com/kirahospital/" target="_blank" title="Facebook" style="color: #ffffff"><i class="fab fa-facebook-f" style="font-size: 35px;"></i></a></span>
+
+                    <span class="sr-twitter "><a rel="nofollow" href="https://twitter.com/kiraswissclinic" target="_blank" title="Twitter" style="color: #ffffff"><i class="fab fa-twitter" style="font-size: 35px;"></i></a></span>
+
+                    {{-- <form action="" class="form-search">
                         <input type="search">
                         <button type="submit"><i class="fa fa-search" type='submit'></i></button>
-                    </form>
+                    </form> --}}
                 </div>
                 <i class="fas fa-bars" id="menu"></i>
             </div>
@@ -71,32 +76,21 @@
                             <li><a href="">Agrement pour cabinets</a></li>
                         </ul>
                     </li>
-                    <li class="m-item">Publication<i class="fas fa-caret-down"></i>
-                        <ul class="menu-items">
-                            <li><a href="">Agenda</a></li>
-                            <li><a href="">Actualité</a></li>
-                            <li><a href="">Annuaire</a></li>
-
-                        </ul>
-                    </li>
                     <li class="m-item">Publications<i class="fas fa-caret-down"></i>
                         <ul class="menu-items">
-
-
                             <li><a href="">Agenda</a></li>
-                            <li><a href="">Actualités</a></li>
-                            <li><a href="">Annuaires Téléphoniques</a></li>
+                            <li><a href="{{ route('site-actualite') }}">Actualité</a></li>
+                            <li><a href="{{ route('site-annuaire') }}">Annuaire</a></li>
+
                         </ul>
                     </li>
+                  
                     
-                    <li class="m-item">Formation<i class="fas fa-caret-down"></i>
-                        <ul class="menu-items">
-
-                            <li><a href="">Formulaire</a></li>
-
-                        </ul>
+                    <li class="m-item"><a href="">Formation</a></i>
+                        
                     </li>
-                    <li class="m-item"><a href="">Contact</a> </li>
+                    <li class="m-item"> <a href="#">Appel d'offres</a></li>
+                    <li class="m-item"><a href=" {{ route('site-contact') }} ">Contact</a> </li>
                     <li class="m-item"><a href="{{ route('login') }}">Se Connecter</a> </li>
 
                     <i class="fas fa-times" id="menu-close"></i>

@@ -18,7 +18,7 @@
 
                 <div class="mySlides fade">
 
-                    <img src="https://eventnook.s3.amazonaws.com/u/64959/coverimage_1702147174219_human-resources.jpg" style="width:100%">
+                    <img src="images/remise2-opc.png" style="width:100%">
 
                 </div>
 
@@ -66,11 +66,16 @@
                                 
                                 <dl class="row">
                                     <dd class="col-sm-4">Du 1 au 2 avril 2021</dd>
-                                    <dt class="col-sm-8">Accouting Training</dt>
+                                    <dt class="col-sm-8">Accouting Training 
+                                        </dt>
+                                        <button>Participer</button>
+
                                     <hr>
 
-                                    <dd class="col-sm-4">Du 5 au 10 avril 2021</dd>
-                                    <dt class="col-sm-8">Finance </dt>
+                                    <dd class="col-sm-4">Du 5 au 10 avril 2021 </dd>
+                                    <dt class="col-sm-8">Finance 
+                                        </dt>
+                                        <button>Participer</button>
                                     <hr>
 
 
@@ -80,6 +85,7 @@
 
                                     <dd class="col-sm-4">Du 22 Mai au Juin 2021</dd>
                                     <dt class="col-sm-8">IT / Program </dt>
+                                     <button>Participer</button>
                                     <hr>
                                     
                                 </dl>

@@ -94,7 +94,9 @@ body{
 #head-menu{
     min-height: 150px;
     margin: auto;
-    background-color: #7fff7b;
+    background-color: #1ea936;
+    color: #fff;
+
     
 }
 
@@ -143,7 +145,7 @@ body{
     list-style-type: none;
     padding: 8px 10px;
     box-sizing: border-box;
-    color: #040041 ;
+    color: #fff ;
     transition: 2s all;
 }
 .m-item:hover{
@@ -151,7 +153,7 @@ body{
 }
 .m-item a{
     text-decoration: none;
-    color: #040041 ;
+    color: #fff ;
     padding: 10px;
 }
 
@@ -168,7 +170,7 @@ body{
 .m-item:hover .menu-items{
     position: absolute;
     display: block;
-    background-color:#7fff7b;
+    background-color: #1ea936;
     min-width: 300px;
 }
 
@@ -177,7 +179,7 @@ body{
     list-style-type: none;
     padding: 12px 50px 12px 10px;
     transition: 0.9s all ease;
-    color: #040041;
+    color: #fff;
     width: 100%;
 }
 

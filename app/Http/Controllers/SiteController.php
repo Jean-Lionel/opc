@@ -16,4 +16,16 @@ class SiteController extends Controller
 
 		return view("site.register");
 	}
+
+	public function contact(){
+		return view("site.contact");
+	}
+
+	public function annuaire(){
+		return view("site.annuaire");
+	}
+
+	public function actualite(){
+		return view("site.actualites");
+	}
 }
