@@ -223,29 +223,32 @@
                     <img src="{{ asset('images/FIONA-TRAITED.JPG') }}" alt="Munezero Anne Fiona">
                     <h5>Munezero Anne Fiona</h5>
                     <h6>SECRETAIRE EXECUTIF A.I</h3>
-                    </div>
-                    <div class="team-item">
+                </div>
+                <div class="team-item">
                         <img src="{{ asset('images/jean-berchmas-photo1.JPG') }}" alt="BIVANDA Jean Berchimas">
                         <h5>BIVANDA Jean Berchimas</h5>
                         <h6>SECRETAIRE GENERAL</h3>
-                    </div>
-                    <div class="team-item">
-                            <img src="{{ asset('images/ashura-photo.png') }}" alt="TAMBAKUBWAYO Ashura">
+                </div>
+            </div>
+            <div class="team">
+                
+                <div class="team-item">
+                    <img src="{{ asset('images/ashura-photo.png') }}" alt="TAMBAKUBWAYO Ashura">
                             <h5>TAMBAKUBWAYO Ashura</h5>
                             <h6>TRESORIER</h3>
-                            </div>
-                            <div class="team-item">
-                                <img src="{{ asset('images/JEAN-MOD.JPG') }}" alt="NGENZAHINDAVYI JEAN">
-                                <h5>NGENZAHINDAVYI JEAN</h5>
+                </div>
+                    <div class="team-item">
+                     <img src="{{ asset('images/JEAN-MOD.JPG') }}" alt="NGENZAHINDAVYI JEAN">
+                        <h5>NGENZAHINDAVYI JEAN</h5>
+                        <h6>MEMBRE DU CNO</h3>
+                    </div>
+                    <div class="team-item">
+                        <img src="{{ asset('images/KIGEME-M.JPG') }}" alt="KIGEME JEANNE">
+                              <h5>KIGEME JEANNE</h5>
                                 <h6>MEMBRE DU CNO</h3>
-                                </div>
-                                <div class="team-item">
-                                    <img src="{{ asset('images/KIGEME-M.JPG') }}" alt="KIGEME JEANNE">
-                                    <h5>KIGEME JEANNE</h5>
-                                    <h6>MEMBRE DU CNO</h3>
-                                    </div>
-                                </div>
                             </div>
+                            </div>
+                     </div>
                             <div class="parent-others">
                                 <div class="others">
                                     <div class="others-item">
