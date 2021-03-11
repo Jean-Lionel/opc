@@ -94,7 +94,10 @@ body{
 #head-menu{
     min-height: 150px;
     margin: auto;
-    background-color: #1ea936;
+    background: url(/images/drepeau.svg.png);
+    background-size: cover;
+    
+    /*background-color: #1ea936;*/
     color: #fff;
 
     
@@ -611,7 +614,7 @@ body{
 
 }
 .others-item h5{
-        font-weight: 700;
+    font-weight: 700;
 }
 .box2 img{
     height: 30px;
@@ -729,13 +732,6 @@ body{
   28% { transform: translateX( -700px ); }
   100% { transform: translateX( -700px ); }
 }
-
-
-
-
-
-
-  
 
   /* testing .slides */
 

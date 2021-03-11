@@ -25,6 +25,8 @@ class PersonLivewire extends Component
     public $debut_activite;
     public $table_name;
     public $identification;
+    public $selectMember;
+    
 
     public $showForm = false;
 
@@ -177,7 +179,11 @@ class PersonLivewire extends Component
         $personne = Person::find($id);
 
         $personne->update(['valider' => 'VALIDER']);
+    }
 
 
+    public function showInformationFormMember($id)
+    {
+        $this->selectMember = Person::find($id);
     }
 }

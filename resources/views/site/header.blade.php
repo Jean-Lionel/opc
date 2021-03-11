@@ -29,7 +29,11 @@
                 <div>
                     <img src="images/OPC1-1.png" class="logo">
                 </div>
-                <div style="font-size: 45px;">
+                <div>
+                     <img src="" width="300" height="" alt="">
+                 </div>
+                <div style="font-size: 20px;">
+                    
 
                     <span class="sr-facebook "><a rel="nofollow" href="http://facebook.com/kirahospital/" target="_blank" title="Facebook" style="color: #ffffff"><i class="fab fa-facebook-f" style="font-size: 35px;"></i></a></span>
 

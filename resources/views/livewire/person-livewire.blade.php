@@ -1,4 +1,6 @@
 <div>
+
+    @if($showForm)
 	
 	<div class="container">
 		<form action="" wire:submit.prevent="savePersonne()">
@@ -131,11 +133,13 @@
 
 	</div>
 
+    @endif
+
 
 
 	<div class="">
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-8">
 
                 <table class="table  table-responsive">
                 <thead>
@@ -167,7 +171,8 @@
                         <td>{{ $personne->addresse }}</td>
                         <td>{{ $personne->type_personne }}</td> --}}
                         <td class="d-flex justify-content-around">
-                            <button><i class="fa fa-eye"></i></button>
+                            <button wire:click="showInformationFormMember({{$personne->id}})"><i class="fa fa-eye"></i></button>
+
                       <button class="btn-sm btn-info" wire:click="modifierPersonne({{ $personne->id }})" title="Modifier"><i class="fa fa-edit"></i></button>
 
                        @if($personne->valider !='VALIDER')
@@ -187,8 +192,29 @@
 
             </div>
 
-        <div class="col-md-3">
-            12
+        <div class="col-md-4">
+            @if($selectMember)
+            <div class="card">
+                <div class="card-header">
+                    <h5>{{$selectMember->first_name }}</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group">
+
+                        <li class="list-group-item">No d'ordre :  {{ $selectMember->order_number }} </li>
+                        <li class="list-group-item">Nom et Prénom: {{ $selectMember->first_name }} </li>
+                        <li class="list-group-item"> Numéro {{ $selectMember->num }} </li>
+                        <li class="list-group-item"> NIF{{ $selectMember->nif }} </li>
+                        <li class="list-group-item">TYPE {{ $selectMember->Numéro }} </li>
+                        <li class="list-group-item"> ADDRESSE :  {{ $personne->addresse }} </li>
+                        <li class="list-group-item"> Tableau :  {{ $personne->table_name }} </li>
+                        <li class="list-group-item"> TELEPHONE : {{ $personne->telephone }} </li>
+                    </ul>
+                    
+                </div>
+            </div>
+
+            @endif
         </div>
         </div>
 		
