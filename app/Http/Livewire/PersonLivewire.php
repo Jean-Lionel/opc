@@ -2,9 +2,11 @@
 
 namespace App\Http\Livewire;
 
+use App\Mail\TestMail;
 use App\Models\Compte;
 use App\Models\Person;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -26,7 +28,7 @@ class PersonLivewire extends Component
     public $table_name;
     public $identification;
     public $selectMember;
-    
+
 
     public $showForm = false;
 
@@ -178,7 +180,44 @@ class PersonLivewire extends Component
     {
         $personne = Person::find($id);
 
+        
+
+    try {
+        DB::beginTransaction();
+
         $personne->update(['valider' => 'VALIDER']);
+        $randPassword = Str::random(8);
+        $user = User::create([
+
+            'name' => $personne->name,
+            'email' => $personne->email,
+            'password' => Hash::make($randPassword),
+            'user_name' => $personne->name,
+            'role' => "MEMBRE"
+
+        ]);
+
+        $details = [
+        'user_name' => $user->email,
+        'password' => $randPassword ,
+        'body' => 'This is a simple email for jean lionel'
+
+    ];
+    \Mail::to($user->email)->send(new TestMail($details));
+    echo "Email has been sent";
+
+
+
+        DB::commit();
+        
+    } catch (\Exception $e) {
+
+        DB::rollback();
+        
+    }
+
+
+
     }
 
 
