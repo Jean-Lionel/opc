@@ -209,6 +209,7 @@
                         <li class="list-group-item"> ADDRESSE :  {{ $personne->addresse }} </li>
                         <li class="list-group-item"> Tableau :  {{ $personne->table_name }} </li>
                         <li class="list-group-item"> TELEPHONE : {{ $personne->telephone }} </li>
+                        <li class="list-group-item"> EMAIL : {{ $personne->email }} </li>
                     </ul>
                     
                 </div>

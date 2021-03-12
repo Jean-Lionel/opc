@@ -212,6 +212,8 @@ class PersonLivewire extends Component
         
     } catch (\Exception $e) {
 
+        dump($e);
+
         DB::rollback();
         
     }
