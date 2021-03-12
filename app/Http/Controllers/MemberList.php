@@ -70,6 +70,7 @@ class MemberList extends Controller
 
 
         //dd($request->all());
+// Textes complets     id  order_number    first_name  addresse    sexe    email   telephone   nif type_personne   debut_activite  table_name  type_enregistrement
         
       
 
@@ -83,6 +84,7 @@ class MemberList extends Controller
                 'nif' => $request->nif,
                 'order_number' => $request->order_number,
                 'debut_activite' => $request->debut_activite,
+                'type_enregistrement' => 'WEB',
                 'table_name' => $request->table_name,
             ]);
 
@@ -96,7 +98,6 @@ class MemberList extends Controller
         return back();
 
     }
-
 
     private function generateCompte()
     {

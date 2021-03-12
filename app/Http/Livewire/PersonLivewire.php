@@ -5,7 +5,9 @@ namespace App\Http\Livewire;
 use App\Mail\TestMail;
 use App\Models\Compte;
 use App\Models\Person;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -76,12 +78,9 @@ class PersonLivewire extends Component
 
     	try {
     		DB::beginTransaction();
-
             if($this->identification){
                 $personne = Person::find($this->identification);
-
                 $personne->update([
-
                 'first_name' => $this->first_name,
                 'addresse' => $this->addresse,
                 'telephone' => $this->telephone,
@@ -92,8 +91,6 @@ class PersonLivewire extends Component
                 'order_number' => $this->order_number,
                 'debut_activite' => $this->debut_activite,
                 'table_name' => $this->table_name,
-
-
                 ]);
 
             }else{
@@ -111,8 +108,6 @@ class PersonLivewire extends Component
             ]);
 
             }
-
-    		
 
     		Compte::create([
     			'person_id' => $personne->id,
@@ -135,11 +130,7 @@ class PersonLivewire extends Component
 
     }
 
-    public function ibiKoVyanse($value='HAKCE')
-    {
-        # code...
-        dd($value);
-    }
+  
     public function modifierPersonne($id){
        
         $person = Person::find($id);
@@ -178,21 +169,17 @@ class PersonLivewire extends Component
 
     public function validerPersonner($id)
     {
-        $personne = Person::find($id);
-
         
 
     try {
         DB::beginTransaction();
-
-        $personne->update(['valider' => 'VALIDER']);
+        $personne = Person::find($id);
         $randPassword = Str::random(8);
         $user = User::create([
-
-            'name' => $personne->name,
+            'name' => $personne->first_name,
             'email' => $personne->email,
             'password' => Hash::make($randPassword),
-            'user_name' => $personne->name,
+            'user_name' => $personne->first_name,
             'role' => "MEMBRE"
 
         ]);
@@ -206,19 +193,15 @@ class PersonLivewire extends Component
     \Mail::to($user->email)->send(new TestMail($details));
     echo "Email has been sent";
 
+      $personne->update(['valider' => 'VALIDER']);
+      $personne->save();
 
-
-        DB::commit();
-        
+    DB::commit();  
     } catch (\Exception $e) {
-
-        dump($e);
+        dump($e->getMessage());
 
         DB::rollback();
-        
     }
-
-
 
     }
 

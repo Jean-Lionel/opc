@@ -48,12 +48,10 @@ class UserLivewire extends Component
     	if($this->identification)
     	{
     		$user = User::find($this->identification);
-
     		$user->name = $this->name;
     		$user->email = $this->email;
     		$user->user_name = $this->user_name;
     		$user->role = $this->role;
-
     		$user->save();
 
     	}else{

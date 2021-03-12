@@ -204,12 +204,14 @@
                         <li class="list-group-item">No d'ordre :  {{ $selectMember->order_number }} </li>
                         <li class="list-group-item">Nom et Prénom: {{ $selectMember->first_name }} </li>
                         <li class="list-group-item"> Numéro {{ $selectMember->num }} </li>
-                        <li class="list-group-item"> NIF{{ $selectMember->nif }} </li>
+                        <li class="list-group-item"> NIF  {{ $selectMember->nif }} </li>
                         <li class="list-group-item">TYPE {{ $selectMember->Numéro }} </li>
-                        <li class="list-group-item"> ADDRESSE :  {{ $personne->addresse }} </li>
-                        <li class="list-group-item"> Tableau :  {{ $personne->table_name }} </li>
-                        <li class="list-group-item"> TELEPHONE : {{ $personne->telephone }} </li>
-                        <li class="list-group-item"> EMAIL : {{ $personne->email }} </li>
+                        <li class="list-group-item"> ADDRESSE :  {{ $selectMember->addresse }} </li>
+                        <li class="list-group-item"> Tableau :  {{ $selectMember->table_name }} </li>
+                        <li class="list-group-item"> TELEPHONE : {{ $selectMember->telephone }} </li>
+
+                      
+                        <li class="list-group-item"> EMAIL : {{ $selectMember->email }} </li>
                     </ul>
                     
                 </div>
