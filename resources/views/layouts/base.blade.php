@@ -63,7 +63,7 @@
             </li>
 
             <li>
-              <a href=""> <i class="  fa fa-certificate"></i> Cabinets agréés par l’OPC</a>
+              <a href="{{ route('cabinets') }}"> <i class="  fa fa-certificate"></i> Cabinets agréés par l’OPC</a>
             </li>
 
             <li>

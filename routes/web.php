@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CabinetController;
 use App\Http\Controllers\MemberList;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\RapportController;
@@ -57,6 +58,7 @@ Route::middleware(['auth:sanctum'])->group(function(){
 
 	Route::resource('users',UserController::class);
 	Route::get('user-profil', [UserController::class, 'userProfil'])->name('user-profil');
+	Route::get('cabinets', [CabinetController::class, 'index'])->name('cabinets');
 
 });
 
