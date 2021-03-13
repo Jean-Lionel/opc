@@ -44,6 +44,10 @@
                         <button type="submit"><i class="fa fa-search" type='submit'></i></button>
                     </form> --}}
                 </div>
+
+                <div>
+                    <img src="img/Flag of Burundi.svg" width="100" alt="">
+                </div>
                 <i class="fas fa-bars" id="menu"></i>
             </div>
             

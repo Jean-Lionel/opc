@@ -94,10 +94,10 @@ body{
 #head-menu{
     min-height: 150px;
     margin: auto;
-    background: url(/images/drepeau.svg.png);
+    background: url("img/Flag of Burundi.svg");
     background-size: cover;
     
-    /*background-color: #1ea936;*/
+    background-color: #1ea936;
     color: #fff;
 
     
