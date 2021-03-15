@@ -35,9 +35,9 @@
                 <div style="font-size: 20px;">
                     
 
-                    <span class="sr-facebook "><a rel="nofollow" href="http://facebook.com/kirahospital/" target="_blank" title="Facebook" style="color: #ffffff"><i class="fab fa-facebook-f" style="font-size: 35px;"></i></a></span>
+                    <span class="sr-facebook "><a rel="nofollow" href="http://facebook.com/" target="_blank" title="Facebook" style="color: #ffffff"><i class="fab fa-facebook-f" style="font-size: 35px;"></i></a></span>
 
-                    <span class="sr-twitter "><a rel="nofollow" href="https://twitter.com/kiraswissclinic" target="_blank" title="Twitter" style="color: #ffffff"><i class="fab fa-twitter" style="font-size: 35px;"></i></a></span>
+                    <span class="sr-twitter "><a rel="nofollow" href="https://twitter.com/" target="_blank" title="Twitter" style="color: #ffffff"><i class="fab fa-twitter" style="font-size: 35px;"></i></a></span>
 
                     {{-- <form action="" class="form-search">
                         <input type="search">

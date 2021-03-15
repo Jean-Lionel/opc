@@ -3,33 +3,30 @@
 @section('content')
 
 <div>
-	<div class="row">
-		<div class="col">
+	<div class="row container pt-4">
+		<div class="col-md-3">
 			<button onclick="exportTo()">Exporter la liste des membres  aggrées </button>
 		</div>
-		<div class="col">
+		<div class="col-md-3">
 			<button onclick="">Exporter la liste des cabinets  aggrées </button>
 		</div>
 
-		<div class="col">
+		<div class="col-md-3">
 			<button onclick="">Exporter la liste des cotsations des membres </button>
 		</div>
 
 
-		<div class="col">
+		<div class="col-md-3">
 			<button onclick="exportTo()">Exporter la liste des membres  aggrées </button>
 		</div>
 
-		<div class="col">
-			<button onclick="printDoc()">imprimer Tout les membres de l'opc</button>
-		</div>
-		<div class="col">
+		
+		<div class="col-md-3 pt-4">
 			<label for="">Importation des données excel</label>
 			<input type="file" id="file_data" accept=".csv">
 		</div>
-		<div class="col"></div>
-		<div class="col"></div>
-		<div class="col"></div>
+		
+
 		
 	</div>
 

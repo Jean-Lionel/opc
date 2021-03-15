@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Compte;
 use App\Models\Person;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class MemberList extends Controller
@@ -158,6 +159,52 @@ class MemberList extends Controller
 
     public function ajouterMember(Request $request){
 
-        dd($request->all());
+        $data = $request->all();
+        $content = json_decode($data['membres']);
+        
+        $a = $this->getMember($content );
+        Person::insert($a);
+        dump("Reussi");
+
+        return "OK";
+    }
+
+
+    private function getMember($data){
+
+        $xcode = [];
+
+        foreach ($data as $key => $value) {
+
+            // dd($value->order_number);
+            # code...
+
+            if(isset($value->order_number)){
+
+                 $xcode[] = [
+
+                  "order_number" => $value->order_number, 
+                  "first_name" => $value->first_name, 
+                  "addresse" => $value->addresse, 
+                  "sexe" => $value->sexe, 
+                  "email" => $value->email, 
+                  "telephone" => $value->telephone, 
+                  "nif" => $value->nif, 
+                  "type_personne" => $value->type_personne, 
+                  "debut_activite" => $value->debut_activite, 
+                  "table_name" => $value->table_name, 
+                  "type_enregistrement" => 'IMPORTATION'
+                  // "created_at" => Carbon::now(), 
+                  // "updated_at" => Carbon::now(), 
+                  // "deleted_at" =>null, 
+
+            ];
+
+            }
+           
+        }
+
+        return $xcode;
+
     }
 }

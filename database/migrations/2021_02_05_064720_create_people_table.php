@@ -23,7 +23,7 @@ class CreatePeopleTable extends Migration
             $table->string('telephone')->nullable();
             $table->string('nif')->nullable();
             $table->string('type_personne');
-            $table->date('debut_activite')->nullable();
+            $table->string('debut_activite')->nullable();
             $table->string('table_name');
             $table->string('type_enregistrement')->nullable();
             $table->string('valider')->nullable();
