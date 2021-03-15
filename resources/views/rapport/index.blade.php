@@ -23,7 +23,10 @@
 		<div class="col">
 			<button onclick="printDoc()">imprimer Tout les membres de l'opc</button>
 		</div>
-		<div class="col"></div>
+		<div class="col">
+			<label for="">Importation des données excel</label>
+			<input type="file" id="file_data" accept=".csv">
+		</div>
 		<div class="col"></div>
 		<div class="col"></div>
 		<div class="col"></div>
@@ -72,12 +75,13 @@
 
 @section('script')
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <script>
 	function exportTo(){
 		exportTableToExcel('tb', 'document_2020')
 
 	}
-
 	function printDoc(){
 		const d = document.getElementById("tb")
 		d.style.display = "block"
@@ -89,8 +93,60 @@
 
 		d.style.display = "none"
 	}
+
+	const file_data = document.getElementById('file_data')
+
+	let membres = [];
 	
-	
+
+	file_data.addEventListener('change', function(e){
+		
+
+		const fr = new FileReader();
+
+		fr.onload = function(){
+			//console.log(csvJSON(fr.result))
+
+			membres = csvJSON(fr.result);
+
+			// jQuery.post('', membres, function(data, textStatus, xhr) {
+			// 	console.log(data)
+			// 	console.log(textStatus)
+			//   //optional stuff to do after success
+			// });
+
+			$.ajax({
+			
+			  url: '{{ route('ajouter')  }}',
+			  type: 'POST',
+			  // dataType: 'json',
+			  data: {membres ,  "_token": "{{ csrf_token() }}"},
+			  complete: function(xhr) {
+			    //called when complete
+			    console.log(xhr)
+			  },
+			  success: function(data) {
+			    //called when successful
+
+			    console.log(data)
+			  },
+			  error: function(xhr) {
+			    //called when there is an error
+			    console.log(xhr)
+			  }
+			});
+			
+		}
+		fr.readAsText(this.files[0], 'ISO-8859-1');
+
+	})
+
+
+
+
+
+
+
 
 </script>
 

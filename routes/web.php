@@ -68,3 +68,5 @@ Route::get('member-list', [MemberList::class, 'index'])->name('person-list');
 
 Route::get('register-member',[MemberList::class, 'create'])->name('register-member');
 Route::post('register-member',[MemberList::class, 'store'])->name('register-member');
+
+Route::post("ajouter-membre", [MemberList::class,'ajouterMember'])->name("ajouter");

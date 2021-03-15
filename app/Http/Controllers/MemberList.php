@@ -155,4 +155,9 @@ class MemberList extends Controller
     {
         //
     }
+
+    public function ajouterMember(Request $request){
+
+        dd($request->all());
+    }
 }

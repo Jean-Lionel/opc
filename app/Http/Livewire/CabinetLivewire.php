@@ -14,12 +14,26 @@ class CabinetLivewire extends Component
 	public $valider;
 
 
+    protected $rules = [
+        'name' => 'required',
+        'order_number' => 'required',
+        'addresse' => 'addresse',
+        'type_personne' => 'required',
+        'type_enregistrement' => 'required',
+
+    ];
+
+
     public function render()
     {
         return view('livewire.cabinet-livewire');
     }
 
+
     public function saveCabinet(){
-    	dd("Je suis cool");
+    	$data = [
+            'name' => $this->name,
+            'order_number' => $this->order_number
+        ];
     }
 }
