@@ -52,7 +52,7 @@
                     <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Les examens en ligne</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Video</a>
+                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Horaire</a>
                 </li>
             </ul>
             <div class="tab-content p-2" id="myTabContent">
@@ -90,8 +90,6 @@
                                     
                                 </dl>
                             </div>
-
-
                                            
                                             
                 </div>
@@ -103,12 +101,18 @@
                 </div>
                 <div class="tab-pane fade  bg-white " id="profile" role="tabpanel" aria-labelledby="profile-tab">
 
-                IR BUJA</div>
+                    <p class="text-center">
+                        Préparation en cours 
+                    </p>
+
+                </div>
 
                 <div class="tab-pane fade  bg-white" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                  <p>
+                  <p class="p-5">
 
-                      Lorem ipsum dolor sit amet consectetur adipisicing, elit. Magni quibusdam nam natus eveniet deserunt quasi quidem, ipsum architecto totam aut nemo debitis aspernatur neque. Nisi consectetur perferendis hic. Qui, accusamus!
+                    Notre équipe pluridisciplinaire vous accueille du lundi au vendredi de 7h:30 à 17h:30 tout au long de l’année (sans fermeture annuelle). 
+
+                      
                   </p>
 
               </div>

@@ -1,5 +1,5 @@
 <?php
- 
+
 namespace App\Http\Livewire;
 
 use App\Models\Cabinet;
@@ -9,44 +9,50 @@ class CabinetLivewire extends Component
 {
 	public $name;
 	public $order_number;
-	public $addresse;
 	public $telephone;
 	public $annee_debut;
-	public $valider;
-    public $identification;
+	public $identification;
 
-
-    protected $rules = [
-        'name' => 'required',
-        'order_number' => 'required',
-        'telephone' => 'required',
-        'annee_debut' => 'required',
-
-    ];
-
-
+	protected $rules = [
+		'name' => 'required',
+		'order_number' => 'required',
+		'annee_debut' => 'required',
+		'telephone' => 'required',
+	];
     public function render()
     {
-        return view('livewire.cabinet-livewire');
+    	$cabinets = Cabinet::latest()->paginate();
+        return view('livewire.cabinet-livewire',
+        	[
+        		'cabinets' => $cabinets
+        	]
+    	);
     }
 
     public function saveCabinet(){
-        
-        $this->validate();
+    	$this->validate();
+
     	$data = [
-            'name' => $this->name,
-            'order_number' => $this->order_number,
-            'telephone' => $this->telephone,
-            'annee_debut' => $this->annee_debut,
-        ];
+    		'name' => $this->name,
+			'order_number' => $this->order_number,
+			'annee_debut' => $this->annee_debut,
+			'telephone' => $this->telephone,
+    	];
 
-        if($this->identification)
-        {
-            Cabinet::find($this->identification)->update($data);
+    	if($this->identification){
+    		Cabinet::find($this->identification)->update($data);
 
-        }else{
-            Cabinet::create($data);
+    	}else{
+    		Cabinet::create($data);
+    	}
+    }
 
-        }
+    public function modifierCabinet($id){
+    		 $cabinet = Cabinet::find($id);
+    	     $this->name = $this->name;
+			 $this->order_number = $this->order_number;
+			 $this->annee_debut = $this->annee_debut;
+			 $this->telephone = $this->telephone;
+			 $this->identification = $this->id;
     }
 }
