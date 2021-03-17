@@ -15,7 +15,6 @@
 			<button onclick="">Exporter la liste des cotsations des membres </button>
 		</div>
 
-
 		<div class="col-md-3">
 			<button onclick="exportTo()">Exporter la liste des membres  aggrées </button>
 		</div>
@@ -24,6 +23,18 @@
 		<div class="col-md-3 pt-4">
 			<label for="">Importation des données excel</label>
 			<input type="file" id="file_data" accept=".csv">
+
+			<div id="loader" style="display: none;">
+				<div class="text-center">
+					<div class="spinner-border text-warning" role="status">
+	  					<span class="sr-only">Loading...</span>
+					</div>
+				</div>
+			</div>
+
+			<div id="response">
+				
+			</div>
 		</div>
 	
 		
@@ -103,6 +114,11 @@
 		fr.onload = function(){
 			//console.log(csvJSON(fr.result))
 
+
+			let loader = $("#loader")
+
+			loader.show()
+
 			membres = csvJSON(fr.result);
 
 			// jQuery.post('', membres, function(data, textStatus, xhr) {
@@ -124,10 +140,26 @@
 			  success: function(data) {
 			    //called when successful
 
+			    loader.hide()
+
+			    $("#response").html(` 
+			    	<div> 
+			    	 <h4>Importation Réussi </h4>
+			    	</div>
+
+			    	`)
+
 			    console.log(data)
 			  },
 			  error: function(xhr) {
 			    //called when there is an error
+
+			    $("#response").html(` 
+			    	<div> 
+			    	 ${xhr}
+			    	</div>
+
+			    	`)
 			    console.log(xhr)
 			  }
 			});
