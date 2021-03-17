@@ -18,8 +18,8 @@ class CreateCabinetsTable extends Migration
             $table->string("name");
             $table->string("order_number");
             $table->string("addresse")->nullable();
-            $table->string("type_personne")->nullable();
-            $table->string("type_enregistrement")->nullable();
+            $table->string("telephone")->nullable();
+            $table->string("annee_debut")->nullable();
             $table->string("valider")->nullable();
             $table->timestamps();
             $table->softDeletes();

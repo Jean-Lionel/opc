@@ -25,8 +25,7 @@
 			<label for="">Importation des données excel</label>
 			<input type="file" id="file_data" accept=".csv">
 		</div>
-		
-
+	
 		
 	</div>
 
