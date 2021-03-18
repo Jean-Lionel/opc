@@ -17,7 +17,7 @@ class CreateCabinetsTable extends Migration
             $table->id();
             $table->string("name");
             $table->string("order_number");
-            $table->string("addresse")->nullable();
+            $table->string("type_cabinet")->nullable();
             $table->string("telephone")->nullable();
             $table->string("annee_debut")->nullable();
             $table->string("valider")->nullable();

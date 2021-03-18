@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cabinet;
 use App\Models\Compte;
 use App\Models\Person;
 use Carbon\Carbon;
@@ -19,20 +20,13 @@ class MemberList extends Controller
         //
         $search = \Request::get('key');
         $classement = \Request::get('classement');
-
-
         $people = Person::where(function($query) use ( $search , $classement ){
-
-
             $query->where('first_name', 'like', '%'. $search .'%');
             if( $classement != null){
                 $query->where('first_name', 'like', '%'. $search .'%')
                       ->where('table_name', '=', $classement);
-
             }
-
-        })->orWhere('order_number', '=',$search )->paginate();
-        
+        })->orWhere('order_number', '=',$search )->paginate();  
         return view('people.member-list', compact('people', 'search', 'classement'));
     }
 
@@ -44,7 +38,6 @@ class MemberList extends Controller
     public function create()
     {
         //
-        
         return view('people.register-form');
     }
 
@@ -73,8 +66,6 @@ class MemberList extends Controller
         //dd($request->all());
 // Textes complets     id  order_number    first_name  addresse    sexe    email   telephone   nif type_personne   debut_activite  table_name  type_enregistrement
         
-      
-
        $personne = Person::create([
                 'first_name' => $request->first_name,
                 'addresse' => $request->addresse,
@@ -112,61 +103,48 @@ class MemberList extends Controller
         return $comp;
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 
     public function ajouterMember(Request $request){
 
         $data = $request->all();
-        $content = json_decode($data['membres']);
-        
+        $content = json_decode($data['membres']); 
         $a = $this->getMember($content );
         Person::insert($a);
         dump("Reussi");
 
         return "OK";
+    }
+
+    public function ajouterCabinet(Request $request){
+
+        $data = $request->all();
+        $content = json_decode($data['cabinets']);
+        $cabinets = $this->getCabinet($content);
+        Cabinet::insert($cabinets);
+        return response('Enregistrment reussi', 200)
+                  ->header('Content-Type', 'text/plain');
+        
+    }
+
+    private function getCabinet($data)
+    {
+        $xcode = [];
+
+        foreach($data as $value){
+            // dd($value);
+            if(isset($value->name) and $value->name != ""){
+                $xcode[] = [
+                    'name' => $value->name,
+                    'order_number' => $value->order_number,
+                    'annee_debut' => $value->annee_debut,
+                    'telephone' => $value->telephone,
+                    'created_at' => new \DateTime(),
+                    'updated_at' => new \DateTime(), 
+                ];
+            }
+        }
+
+        return $xcode;
     }
 
 
@@ -193,8 +171,9 @@ class MemberList extends Controller
                   "type_personne" => $value->type_personne, 
                   "debut_activite" => $value->debut_activite, 
                   "table_name" => $value->table_name, 
-                  "type_enregistrement" => 'IMPORTATION'
-                  // "created_at" => Carbon::now(), 
+                  "type_enregistrement" => 'IMPORTATION',
+                  'created_at' => new \DateTime(), 
+                  'updated_at' => new \DateTime(), 
                   // "updated_at" => Carbon::now(), 
                   // "deleted_at" =>null, 
 

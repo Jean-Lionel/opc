@@ -70,3 +70,4 @@ Route::get('register-member',[MemberList::class, 'create'])->name('register-memb
 Route::post('register-member',[MemberList::class, 'store'])->name('register-member');
 
 Route::post("ajouter-membre", [MemberList::class,'ajouterMember'])->name("ajouter");
+Route::post("ajouter-cabinet", [MemberList::class,'ajouterCabinet'])->name("ajouter_cabinet");
