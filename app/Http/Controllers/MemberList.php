@@ -26,7 +26,7 @@ class MemberList extends Controller
                 $query->where('first_name', 'like', '%'. $search .'%')
                       ->where('table_name', '=', $classement);
             }
-        })->orWhere('order_number', '=',$search )->paginate();  
+        })->orWhere('order_number', '=',$search )->paginate(80);  
         return view('people.member-list', compact('people', 'search', 'classement'));
     }
 

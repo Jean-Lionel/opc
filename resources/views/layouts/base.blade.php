@@ -75,9 +75,6 @@
             <li>
               <a href="{{ route('person-list') }}"> <i class="fa fa-users"></i> Liste des Membres</a>
             </li>
-            <li>
-              <a href="{{ route('register-member') }}"> <i class="fa fa-file"></i> File Enregistrement</a>
-            </li>
 
              <li>
               <a href="#"> <i class="fa fa-commenting"></i> Contact</a>

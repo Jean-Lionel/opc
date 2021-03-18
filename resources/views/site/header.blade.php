@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.14.0/css/all.css">
 
     <link rel="stylesheet" href="{{ asset('css/site/style.css') }}">
-    <title>OPC|Acceuil</title>
+    <title>{{$title ?? "OPC|Acceuil Burundi Ordre Professionel des Copmtables"}}</title>
     
 </head>
 <body class="container-fluid">

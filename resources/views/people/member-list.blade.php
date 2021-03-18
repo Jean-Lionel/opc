@@ -1,14 +1,8 @@
 
-@include('site.header')
+@include('site.header', ["title" => "Liste des membres de l'opc"])
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<title>Liste des membres de l'opc</title>
+	
 
 	<style>
 
@@ -56,8 +50,6 @@
 		}
 
 	</style>
-</head>
-<body>
 
 	<div class="content-principal">
 		<h3 style="text-align: center;">Liste des Membres de l'OPC</h3>
@@ -118,7 +110,7 @@
 
 		</div>
 
-		{{ $people->links() }}
+		{{-- {{ $people->links() }} --}}
 
 	</div>
 
@@ -146,6 +138,5 @@
 
 
 	</script>
-	
-</body>
-</html> 
+
+@include('site.footer')
