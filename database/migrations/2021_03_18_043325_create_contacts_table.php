@@ -19,6 +19,7 @@ class CreateContactsTable extends Migration
             $table->string('subject');
             $table->string('email');
             $table->string('message');
+            $table->string('status')->default('NON VUE');
             $table->timestamps();
             $table->softDeletes();
         });

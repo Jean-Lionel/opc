@@ -77,7 +77,7 @@
             </li>
 
              <li>
-              <a href="#"> <i class="fa fa-commenting"></i> Contact</a>
+              <a href="{{ route('read-message') }}"> <i class="fa fa-commenting"></i> Contact</a>
             </li>
 
             <li>

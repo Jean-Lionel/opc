@@ -45,6 +45,9 @@ Route::get('/login', function () {
 // })->name('dashboard');
 Route::middleware(['auth:sanctum'])->group(function(){
 	Route::resource('people', PersonController::class);
+
+	Route::get('read-message', [ContactController::class , 'index'])->name('read-message');
+
 	Route::get('paiment', [PersonController::class , 'paiment'])->name('paiment');
 	Route::get('rapport', [RapportController::class, 'index'] )->name('rapport');
 	Route::resource('users',UserController::class);
