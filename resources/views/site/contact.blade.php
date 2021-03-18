@@ -1,4 +1,4 @@
-@include('site.header')
+@include('site.header', ['title' => 'contact OPC Burundi'])
 
 <div class="container">
 	<div class="row">
@@ -21,50 +21,63 @@
 					
 				</div>
 
-
 				<div class="col-md-4 text-center pt-3">
-					<i class="fa fa-phone"  style="font-size: 25px;"></i>
-					
+					<i class="fa fa-phone"  style="font-size: 25px;"></i>		
 				</div>
 
 				<div class="col-md-8 pt-3">
-
 					<h4>+257 222 54 283</h4>
 					
 				</div>
-
-
 			</div>
-
-
-
-			
+	
 		</div>
 		<div class="col-md-6">
 			<h4>Formulaire de contact</h4>
-			<div class="contact-form">
+
+			<form action="{{ route('contact') }}" method="post">
+				@csrf()
+				@method('post')
+				
+				<div class="contact-form">
 				<div class="form-group">
 					<label class="control-label" for="fname">Nom:</label>
 					<div class="col-sm-10">          
-						<input type="text" class="form-control" id="fname" placeholder="" name="fname">
+						<input type="text" value="{{ old('name') }}" class="form-control" name="name" id="fname" placeholder="">
+
+						@error('name')
+						<p class="text-danger">{{$message}}</p>
+						@enderror
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="lname">Sujet:</label>
 					<div class="col-sm-10">          
-						<input type="text" class="form-control" id="lname" placeholder="" name="lname">
+						<input type="text" class="form-control" name="subject" id="lname" placeholder="" >
+
+						@error('subject')
+						<p class="text-danger">{{$message}}</p>
+						@enderror
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="email">Email:</label>
 					<div class="col-sm-10">
-						<input type="email" class="form-control" id="email" placeholder="" name="email">
+						<input type="email" class="form-control" name="email" id="email" placeholder="" >
+
+						@error('email')
+						<p class="text-danger">{{$message}}</p>
+						@enderror
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label" for="comment">Message:</label>
 					<div class="col-sm-10">
-						<textarea class="form-control" rows="5" id="comment"></textarea>
+						<textarea class="form-control" rows="5"  name ="message"  id="comment"></textarea>
+
+						@error('message')
+						<p class="text-danger">{{$message}}</p>
+						@enderror
 					</div>
 				</div>
 				<div class="form-group">        
@@ -72,10 +85,8 @@
 						<button type="submit" class="btn btn-primary">Envoyer</button>
 					</div>
 				</div>
-			</div>
-			
-
-
+			</div>	
+			</form>
 			
 		</div>
 
@@ -84,29 +95,19 @@
 
 			<style>
 				
-
 				.map-responsive{
-
 					overflow:hidden;
-
 					padding-bottom:56.25%;
-
 					position:relative;
-
 					height:0;
-
 				}
 
 				.map-responsive iframe{
 
 					left:0;
-
 					top:0;
-
 					height:100%;
-
 					width:100%;
-
 					position:absolute;
 
 				}
@@ -121,7 +122,6 @@
 
 			</div>
 			
-
 
 		</div>
 

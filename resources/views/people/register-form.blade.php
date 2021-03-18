@@ -1,18 +1,5 @@
-@include('site.header')
+@include('site.header',['title' => 'Enregistrement en ligne dans opc ordre profestionnel des comptables'])
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Enregistrement dans l'opc</title>
-       <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
-    <!-- Font Icon -->
-    <!-- Main css -->
-   {{--  <link rel="stylesheet" href="css/register.css"> --}}
-</head>
-<body>
 
     <div class="main container">
 
@@ -144,7 +131,7 @@
                 <div class="form-group">
                     <button class=" btn-info btn">Enregistrer</button>
 
-                    <a href="{{ route('people.index') }}" class=" btn-info btn">Retour</a>
+                    <a href="{{ route('accueil') }}" class=" btn-info btn">Retour</a>
 
                 </div>
 
@@ -163,9 +150,6 @@
 
     </div>
 
-
-</body>
-</html>
 
 
 @include('site.footer')
