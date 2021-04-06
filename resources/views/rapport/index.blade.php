@@ -165,7 +165,7 @@
 			});
 			
 		}
-		fr.readAsText(this.files[0], 'ISO-8859-1');
+		fr.readAsText(this.files[0], 'UTF-8');
 
 	})
 

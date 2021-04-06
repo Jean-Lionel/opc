@@ -42,12 +42,12 @@
 		<h4>Les autres articles</h4>
 
 		<ul class="list-group">
+			{{-- <li>Article 1</li>
 			<li>Article 1</li>
 			<li>Article 1</li>
 			<li>Article 1</li>
 			<li>Article 1</li>
-			<li>Article 1</li>
-			<li>Article 1</li>
+			<li>Article 1</li> --}}
 		</ul>
 		
 	</article>

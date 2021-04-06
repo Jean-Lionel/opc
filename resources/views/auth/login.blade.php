@@ -18,34 +18,25 @@
     <title>Opc Burundi</title>
   </head>
   <body>
-  
 
-  
   <div class="content">
     <div class="container">
       <div class="row">
         <div class="col-md-6">
          <center>
             <img src="img/Flag of Burundi.svg"  width="150" alt="Image" class="img-fluid">
-
-           
          </center>
-
-
           <div class="container pt-4 mt-4">
              <div class="text-center">
               <strong style="font-size:20px;">Informations</strong>
             </div>
 
-           <div style="text-align:left"> 
+           <div style="text-align:left;"> 
 
              <p> 1. Click <strong>activate account link </strong> on the left side of this screen. </p> 
              <p> 2. Type your email addresses used for communication with ICPAK (members only) </p> 
              <p>3. Login to your email for an activation link sent to you</p> 
-
              <p>4. Click on the first link to set your password and confirm</p> <p>5. Login to your Portal</p> </div>
-
-            
           </div>
         </div>
         <div class="col-md-6 contents">

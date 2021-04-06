@@ -35,7 +35,7 @@
                 <div style="font-size: 20px;">
                     
 
-                    <span class="sr-facebook "><a rel="nofollow" href="http://facebook.com/" target="_blank" title="Facebook" style="color: #ffffff"><i class="fab fa-facebook-f" style="font-size: 35px;"></i></a></span>
+                    <span class="sr-facebook "><a rel="nofollow" href="https://www.facebook.com/pg/OPC-1478253712318147/posts/" target="_blank" title="Facebook" style="color: #ffffff"><i class="fab fa-facebook-f" style="font-size: 35px;"></i></a></span>
 
                     <span class="sr-twitter "><a rel="nofollow" href="https://twitter.com/" target="_blank" title="Twitter" style="color: #ffffff"><i class="fab fa-twitter" style="font-size: 35px;"></i></a></span>
 
@@ -60,14 +60,13 @@
                         <ul class="menu-items">
                             <li><a href="">Qui sommes-nous ? </a></li>
                             <li><a href="">Le conseil national d'ordre</a></li>
-                            <li><a href="">Gestion</a></li>
                             <li><a href="">Rapport annuel</a></li>
                             <li><a href="">Partenariats et liens</a></li>
                             <li><a href="">Charte de science</a></li>
                             <li><a href="">Plan stratégique</a></li>
                             <li><a href="{{ route('person-list') }}">Membres de l'OPC</a></li>
                             <li>
-                                <a href="{{ route('person-list') }}">Cabinet de l'OPC</a>
+                                <a href="{{ route('cabinet') }}">Cabinet de l'OPC</a>
                             </li>
 
                             <li><a href="">Comité</a></li>
@@ -75,13 +74,13 @@
                     </li>
                     <li class="m-item">Adhésion<i class="fas fa-caret-down"></i>
                         <ul class="menu-items">
-                            <li><a href="">Avantage</a></li>
+                            <li><a href="{{ route('condition') }}">Condition d'adhésion</a></li>
                             <li><a href="">Cértification</a></li>
                             <li><a href="">Catégories</a></li>
                             <li><a href="{{ route('register-member') }}">Enregistrement en ligne</a></li>
                             <li><a href="">Programme de stage</a></li>
-                            <li><a href="">Agrement par OPC </a></li>
-                            <li><a href="">Agrement pour cabinets</a></li>
+                            <li><a href="">Agrément par OPC </a></li>
+                            <li><a href="{{ route('cabinet') }}">Agrément pour cabinets</a></li>
                         </ul>
                     </li>
                     <li class="m-item">Publications<i class="fas fa-caret-down"></i>

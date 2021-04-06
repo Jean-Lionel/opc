@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cabinet;
 use Illuminate\Http\Request;
 
 class SiteController extends Controller
@@ -10,6 +11,16 @@ class SiteController extends Controller
 	public function index(){
 
 		return view("site.index");
+	}
+	public function condition(){
+
+			return view("site.condition");
+	}
+
+	public function cabinet(){
+		$cabinets = Cabinet::orderBy('order_number','ASC')->get();
+		// return $cabinets;
+		return view("site.cabinet",['cabinets' => $cabinets]);
 	}
 
 	public function createMember(){

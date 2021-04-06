@@ -7,16 +7,11 @@
         <section class="signup">
             <div class="container">
                 <div class="signup-content">
-        
-
-
                  <div class="row">
 
-
          <div class="col-md-6">
-            <h4 class="text-center">Enregistrer un Nouveau Membre</h4>
+            <h4 class="text-center">Formulaire d'identification</h4>
             <form action="{{ route('register-member') }}" method="post">
-
                 @method('post')
                 @csrf
                 <div class="form-group">
@@ -24,12 +19,8 @@
                     <input class="form-control" type="text" name="first_name">
                     @error('first_name')
                     <span class="error text-danger">{{ $message }}</span>
-
                     @enderror
                 </div>
-
-
-
                 <div class="form-group">
                     <label for="">GENRE</label>
                     <select name="" class="form-control" name="sexe" id="">
@@ -63,11 +54,8 @@
 
                     @enderror
                 </div>
-
-
                 <div class="form-group">
                     <label for="">Tableau</label>
-
                     <select name="table_name" name="" id="" class="form-control">
                         <option value="">Select ...</option>
                         <option value="A">TABLEAU A</option>
@@ -77,40 +65,27 @@
                         <option value="ST">STAGAIERE</option>
                         <option value="CABINET">CABINET</option>
                     </select>
-                   
                     @error('table_name')
                     <span class="error text-danger">{{ $message }}</span>
-
                     @enderror
                 </div>
-
-
                   <div class="form-group">
                     <label for="">NIF</label>
                     <input type="text" name="nif" class="form-control">
-
                     @error('nif')
                     <span class="error text-danger">{{ $message }}</span>
-
                     @enderror
                 </div>
-
                  <div class="form-group">
                     <label for="">DEBUT D'ACTIVITE</label>
                     <input type="date" name="debut_activite" class="form-control">
-
                     @error('debut_activite')
                     <span class="error text-danger">{{ $message }}</span>
-
                     @enderror
                 </div>
-               
-
-
                 <div class="form-group">
                     <label for="">Email</label>
                     <input class="form-control" placeholder="ex: exemple@emple.bi" type="email" name="email">
-
                     @error('email')
                     <span class="error text-danger">{{ $message }}</span>
 

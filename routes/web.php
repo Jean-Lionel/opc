@@ -36,6 +36,8 @@ Route::get('create-member', [SiteController::class, 'createMember']) ;
 Route::get('site-contact', [SiteController::class, 'contact'])->name("site-contact") ;
 Route::get('site-annuaire', [SiteController::class, 'annuaire'])->name("site-annuaire") ;
 Route::get('site-actualite', [SiteController::class, 'actualite'])->name("site-actualite") ;
+Route::get('condition',[SiteController::class, 'condition'])->name('condition');
+Route::get('cabinet',[SiteController::class, 'cabinet'])->name('cabinet');
 Route::get('/',[SiteController::class, 'index'])->name('accueil');
 Route::get('/login', function () {
     return view('auth.login');
@@ -62,3 +64,4 @@ Route::middleware(['auth:sanctum'])->group(function(){
 Route::post('contact', [ContactController::class, 'store'])->name('contact');
 Route::get('member-list', [MemberList::class, 'index'])->name('person-list');
 Route::get('register-member',[MemberList::class, 'create'])->name('register-member');
+
