@@ -69,9 +69,7 @@
                 </label>
                 <span class="ml-auto"><a href="#" class="forgot-pass">Mot de passe oublié</a></span> 
               </div>
-
-              <input type="submit" value="Se Connecter" class="btn btn-block btn-primary">      
-             
+              <input type="submit" value="Se Connecter" class="btn btn-block btn-primary">
             </form>
             </div>
           </div>

@@ -27,14 +27,16 @@
         <div class="head">
             <div class="head-logo-search">
                 <div>
-                    <img src="images/OPC1-1.png" class="logo">
+                    <a href="{{ route('site') }}">
+                        <img src="images/OPC1-1.png" class="logo">
+                    </a>
+                    
                 </div>
                 <div>
                      <img src="" width="300" height="" alt="">
                  </div>
                 <div style="font-size: 20px;">
                     
-
                     <span class="sr-facebook "><a rel="nofollow" href="https://www.facebook.com/pg/OPC-1478253712318147/posts/" target="_blank" title="Facebook" style="color: #ffffff"><i class="fab fa-facebook-f" style="font-size: 35px;"></i></a></span>
 
                     <span class="sr-twitter "><a rel="nofollow" href="https://twitter.com/" target="_blank" title="Twitter" style="color: #ffffff"><i class="fab fa-twitter" style="font-size: 35px;"></i></a></span>
@@ -76,7 +78,7 @@
                         <ul class="menu-items">
                             <li><a href="{{ route('condition') }}">Condition d'adhésion</a></li>
                             <li><a href="">Cértification</a></li>
-                            <li><a href="">Catégories</a></li>
+                            <li><a href="{{ route('category') }}">Catégories</a></li>
                             <li><a href="{{ route('register-member') }}">Enregistrement en ligne</a></li>
                             <li><a href="">Programme de stage</a></li>
                             <li><a href="">Agrément par OPC </a></li>
@@ -96,7 +98,7 @@
                     <li class="m-item"><a href="">Formation</a></i>
                         
                     </li>
-                    <li class="m-item"> <a href="#">Appel d'offres</a></li>
+                    <li class="m-item"> <a href="{{ route('publicite') }}">Appel d'offres</a></li>
                     <li class="m-item"><a href=" {{ route('site-contact') }} ">Contact</a> </li>
                     <li class="m-item"><a href="{{ route('login') }}">Se Connecter</a> </li>
 

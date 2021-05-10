@@ -17,6 +17,15 @@ class SiteController extends Controller
 			return view("site.condition");
 	}
 
+	public function publicite(){
+
+		return view("site.publicite");
+	}
+	public function category(){
+
+		return view("site.category");
+	}
+
 	public function cabinet(){
 		$cabinets = Cabinet::orderBy('order_number','ASC')->get();
 		// return $cabinets;
