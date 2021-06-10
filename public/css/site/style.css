@@ -187,11 +187,11 @@ body{
 }
 
 .menu-items li:hover {
-    color:#7fff7b;
+    color:#1ea936;
     background-color: #040041;
 }
 .menu-items li:hover a{
-    color:#7fff7b;
+    color:#1ea936;
 }
 
 
@@ -226,13 +226,13 @@ body{
         flex-direction: column;
         z-index: 100;
         font-size: 1rem;
-        background-color: #7fff7b;
+        background-color: #1ea936;
         transition: .9s all;
         
     }
 
     .m-item:hover{
-        background-color: #7fff7b;
+        background-color: #1ea936;
         overflow: visible; 
         max-height: 200px;
     }
@@ -248,7 +248,7 @@ body{
         padding: 0;
         display: none;
         position: relative;
-        background-color:white;
+        background-color:#1ea936;
         box-shadow: rgba(99, 99, 99, 0.5) 0px 2px 8px 0px;
      }
 
@@ -257,7 +257,7 @@ body{
         width: 100%;
         position: relative;
         display: block;
-        background-color: #f0f0f0;
+        background-color: #1ea936;
         z-index: 10000;
      }
 

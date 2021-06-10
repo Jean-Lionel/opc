@@ -6,29 +6,18 @@
 		{{-- ASIDE --}}
 	<aside class="col-md-8">
 		<h2> Actualités </h2>
-		<p>
-			Organisation d’une formation portant sur  « la communication et la visibilité » des actions de l’Union Européenne au Burundi
-		</p>
 
-		<div>
-			<img src="{{ asset('images/opcslider1.jpg') }}" class="img-fluid" alt="photo de famille des cadres ayant participé à la formation.">
+		<div class="text-center"> 
+			<img src="{{ asset('images/actualite_new.jpg') }}"  height="auto" width="100%" alt="photo de famille des cadres ayant participé à la formation.">
 		</div>
 
 		<div class="text-justify" style=" text-align: justify;
-  text-justify: inter-word;">
+  text-justify: inter-word; font-size: 1.6rem;">
 			
 			<p>
-				« Faire savoir », tel est le maître mot de la formation portant sur la communication et la visibilité des actions de l’Union Européenne dans le cadre du Fonds Européen de Développement (FED).  Du 20 au 26 Mai 2014,  une vingtaine de cadres relevant de la cellule d’appui à l’Ordonnateur Nationale du FED(CELON), de projets FED et des ministères techniques a participé à cette formation dont le but est d’amener les projets et programmes du FED au BURUNDI à communiquer leurs réalisations à la population.
+				Les élèves finalistes du Saint Esprit de la section Économique, accompagnés par le préfet de discipline et les enseignants de cette section, ont été accueillis, Vendredi le 07 Avril 2021, au siège de l’OPC, Reçus par le Président de l’OPC, le secrétaire Général, le Secrétaire Exécutif ainsi que le Consultant de la Banque Mondial à l’OPC, les étudiants ont pu découvrir la place de l’Ordre des Professionnels Comptables dans le développement et la promotion de la profession comptable du Burundi. Ils ont également pu échanger sur les perspectives professionnelles ouvertes par l’OPC pour y effectuer des stages afin de devenir plus tard  des professionnels comptable. Les étudiants ont pu pratiqués les connaissances avec le logiciel de gestion de la comptabilité Sage saari. Cette visite s'inscrit dans des relations étroites déjà établies entre l'OPC et  l’Ecole du Saint Esprit ainsi que  d’autres Universités.
 			</p>
-
-			<h2>
-				Session de formation aux procédures financières et contractuelles du FED
-			</h2>
-
-			<p >
-				
-				Dans le cadre du renforcement des capacités des  services de l’ordonnateur national du FED (Fonds Européen de Développement), la Délégation de l’Union Européenne au Burundi, en  collaboration avec la Cellule d’appui à l’ordonnateur national (CELON), a organisé une session de formation sur les procédures FED. Cette formation a été dispensée sur une période de deux semaines (du 21 Avril au 2 Mai 2014) à Bujumbura par un des principaux cabinets de conseil pour le secteur public « Human dynamics » basé en Autriche.
-			</p>
+	
 		</div>
 
 		

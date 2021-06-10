@@ -23,6 +23,8 @@ use Illuminate\Support\Facades\Route;
 
 //SITE ROUTER
 
+Route::view('formation','site.formation')->name('formation');
+
 Route::get('/send-email', function(){
 	$details = [
 		'title' => 'Mail from HACKER',
@@ -44,6 +46,7 @@ Route::get('/',[SiteController::class, 'index'])->name('accueil');
 Route::get('/login', function () {
     return view('auth.login');
 })->name('login');
+
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //     return view('dashboard');
 // })->name('dashboard');

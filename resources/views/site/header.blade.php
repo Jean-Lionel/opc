@@ -17,6 +17,21 @@
 
     <link rel="stylesheet" href="{{ asset('css/site/style.css') }}">
     <title>{{$title ?? "OPC|Acceuil Burundi Ordre Professionel des Copmtables"}}</title>
+
+    <style>
+
+     @media  screen and (max-width: 600px) {
+        /*.head-logo-search img{
+            display: none;
+        }*/
+
+        .drapeau_burundi{
+            display: none;
+        }
+
+    }
+        
+    </style>
     
 </head>
 <body class="container-fluid">
@@ -32,9 +47,7 @@
                     </a>
                     
                 </div>
-                <div>
-                     <img src="" width="300" height="" alt="">
-                 </div>
+               
                 <div style="font-size: 20px;">
                     
                     <span class="sr-facebook "><a rel="nofollow" href="https://www.facebook.com/pg/OPC-1478253712318147/posts/" target="_blank" title="Facebook" style="color: #ffffff"><i class="fab fa-facebook-f" style="font-size: 35px;"></i></a></span>
@@ -47,7 +60,7 @@
                     </form> --}}
                 </div>
 
-                <div>
+                <div class="drapeau_burundi">
                     <img src="img/Flag of Burundi.svg" width="100" alt="">
                 </div>
                 <i class="fas fa-bars" id="menu"></i>
@@ -95,7 +108,7 @@
                     </li>
                   
                     
-                    <li class="m-item"><a href="">Formation</a></i>
+                    <li class="m-item"><a href="{{ route('formation') }}">Formation</a></i>
                         
                     </li>
                     <li class="m-item"> <a href="{{ route('publicite') }}">Appel d'offres</a></li>
