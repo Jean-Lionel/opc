@@ -1,14 +1,10 @@
 @include('site.header',['title' => 'Enregistrement en ligne dans opc ordre profestionnel des comptables'])
-
-
     <div class="main container">
-
         <!-- Sign up form -->
         <section class="signup">
             <div class="container">
                 <div class="signup-content">
                  <div class="row">
-
          <div class="col-md-6">
             <h4 class="text-center">Formulaire d'identification</h4>
             <form action="{{ route('register-member') }}" method="post">

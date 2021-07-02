@@ -12,6 +12,8 @@ use Illuminate\Support\Str;
 use Livewire\Component;
 use Livewire\WithPagination;
 
+
+
 class PersonLivewire extends Component
 {
 	use WithPagination;
@@ -30,21 +32,12 @@ class PersonLivewire extends Component
     public $table_name;
     public $identification;
     public $selectMember;
-
-
     public $showForm = false;
-
 
     public function toogleShowForm(){
         $this->showForm = ! $this->showForm;
 
     }
-
-
-	public function mount(){
-		
-	}
-
     public function render()
     {
     	$searchKey =  '%'.$this->searchKey.'%';
@@ -53,7 +46,6 @@ class PersonLivewire extends Component
     		$query->where('first_name','like',$searchKey);
 
     	})->latest()->paginate();
-    	
         return view('livewire.person-livewire',[
         	'personnes' => $personnes
 
@@ -75,7 +67,6 @@ class PersonLivewire extends Component
 
     public function savePersonne(){
     	$this->validate();
-
     	try {
     		DB::beginTransaction();
             if($this->identification){
@@ -106,15 +97,24 @@ class PersonLivewire extends Component
                 'debut_activite' => $this->debut_activite,
                 'table_name' => $this->table_name,
             ]);
-
             }
 
-    		Compte::create([
+    		$compte = Compte::create([
     			'person_id' => $personne->id,
     			'name' => $this->generateCompte(),
     			'montant' => $personne->id
 
     		]);
+
+            User::create([
+            'name' => $this->first_name,
+            'email' => $this->email,
+            'email_verified_at' => now(),
+            'compte' => $compte->id,
+            'role' => 'MEMBRE',
+            'password' => Hash::make('12345678'), // password
+            'remember_token' => Str::random(10),
+            ]);
 
     		$this->reset();
 
@@ -130,11 +130,9 @@ class PersonLivewire extends Component
 
     }
 
-  
+   
     public function modifierPersonne($id){
-       
         $person = Person::find($id);
-
         $this->identification = $person->id;
         $this->first_name = $person->first_name;
         $this->order_number = $person->order_number;
@@ -146,6 +144,7 @@ class PersonLivewire extends Component
         $this->email = $person->email;
         $this->debut_activite = $person->debut_activite;
         $this->table_name = $person->table_name;
+        $this->toogleShowForm();
     }
 
     public function supprimerPersonne($value)
@@ -170,7 +169,6 @@ class PersonLivewire extends Component
     public function validerPersonner($id)
     {
         
-
     try {
         DB::beginTransaction();
         $personne = Person::find($id);
@@ -195,17 +193,12 @@ class PersonLivewire extends Component
 
       $personne->update(['valider' => 'VALIDER']);
       $personne->save();
-
     DB::commit();  
     } catch (\Exception $e) {
         dump($e->getMessage());
-
         DB::rollback();
     }
-
     }
-
-
     public function showInformationFormMember($id)
     {
         $this->selectMember = Person::find($id);

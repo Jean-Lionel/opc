@@ -61,9 +61,6 @@ class MemberList extends Controller
         'table_name' => 'required',
     
     ]);
-        //dd($request->all());
-// Textes complets     id  order_number    first_name  addresse    sexe    email   telephone   nif type_personne   debut_activite  table_name  type_enregistrement
-        
        $personne = Person::create([
                 'first_name' => $request->first_name,
                 'addresse' => $request->addresse,
@@ -82,13 +79,9 @@ class MemberList extends Controller
                 'person_id' => $personne->id,
                 'name' => $this->generateCompte(),
                 'montant' => $personne->id
-
          ]);
-
         return back();
-
     }
-
     private function generateCompte()
     {
         $comp = str_pad(rand(0,999999), 6,0,  STR_PAD_LEFT);
@@ -96,7 +89,6 @@ class MemberList extends Controller
             # code...
             $comp = str_pad(rand(0,999999), 6,0,  STR_PAD_LEFT);
         }
-
         return $comp;
     }
 

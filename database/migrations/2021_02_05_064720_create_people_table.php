@@ -26,6 +26,7 @@ class CreatePeopleTable extends Migration
             $table->string('debut_activite')->nullable();
             $table->string('table_name');
             $table->string('type_enregistrement')->nullable();
+            $table->string('status')->nullable();
             $table->string('valider')->nullable();
             $table->timestamps();
             $table->softDeletes();

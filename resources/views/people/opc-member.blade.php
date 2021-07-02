@@ -5,19 +5,15 @@
 			width: 75%;
 
 		}
-
 		.content-principal table{
 			width: 100%;
 			border-collapse: collapse;
 			margin-top: 20px;
-
 		}
 		table , td ,th,td {
 			border: 1px solid black;
 			text-align: left;
-
 		}
-
 		.content-principal h1{
 			text-align: center;
 		}
@@ -33,16 +29,12 @@
 		.searchBtn{
 			padding: 6px;
 			border-radius: 5px;
-
-
 		}
-
 		.searchBtn:hover{
 			cursor: pointer;
 			color: gold;
 			background: green;
 		}
-
 	</style>
 	<div class="content-principal">
 		<h3 style="text-align: center;">Liste des Membres de l'OPC</h3>
@@ -65,11 +57,7 @@
 				<button class="searchBtn" type="submit"> <i class="fa fa-search"></i> </button>
 			</form>
 		</div>
-		
-
 		<div id="print_doc">
-			
-
 			<table class="table">
 				<thead>
 					<tr>
@@ -81,7 +69,6 @@
 						<th>Téléphone</th>
 					</tr>
 				</thead>
-
 				<tbody>
 					@foreach($people as $person)
 					<tr>
@@ -93,41 +80,25 @@
 						<td>{{ $person->telephone ?? "" }}</td>
 
 					</tr>
-
 					@endforeach
 				</tbody>
-
 			</table>
-
 		</div>
-
 		{{-- {{ $people->links() }} --}}
-
 	</div>
-
 	<script src="{{ asset('js/print.min.js') }}">
-		
 	</script>
-
 	<script>
 		const printDoc = document.getElementById("print_doc");
 		const btn_print = document.getElementById("btn_print");
 		console.log(btn_print)
-
 		btn_print.addEventListener('click',(e) =>{
 			e.preventDefault();
-			console.log('je suis un future milliardaire');
-
 			printJS({
 				printable : 'print_doc',
 				type : 'html',
-
 				css : "{{ asset('css/printdoc.css') }}"
 			})
-
 		})
-
-
 	</script>
-
 @include('site.footer')

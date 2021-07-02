@@ -1,9 +1,8 @@
 <div>
-
     @if($showForm)
-	
 	<div class="container">
-		<form action="" wire:submit.prevent="savePersonne()">
+        <h4 class="text-center">Enregistrement d'un Membre</h4>
+		<form action="" wire:submit.prevent="savePersonne">
 			<div class="row">
 				<div class="col-md-5 mr-1">
 					<div class="form-group">
@@ -121,7 +120,7 @@
     			</div>
 
     			<div class="form-group">
-    				<button class="form-control btn-primary">Enregistrer</button>
+    				<button type="submit" class="form-control btn-primary">Enregistrer</button>
     			</div>
 
 				</div>
@@ -133,13 +132,15 @@
 
 	</div>
 
-    @endif
+    @else
 
 
 
 	<div class="">
         <div class="row">
             <div class="col-md-8">
+
+                <button wire:click="toogleShowForm">Ajouter</button>
 
                 <table class="table  table-responsive">
                 <thead>
@@ -166,7 +167,7 @@
                         <td>{{ $personne->order_number }}</td>
                         <td>{{ $personne->first_name }}</td>
                         <td>{{ $personne->compte->name ?? "" }}</td>
-                        <td>STATUS</td>
+                        <td>{{ $personne->status }}</td>
                        {{--  <td>{{ $personne->telephone }}</td>
                         <td>{{ $personne->table_name }}</td>
                         <td>{{ $personne->nif }}</td>
@@ -181,7 +182,7 @@
 
                       <button class="btn btn-info" wire:click="validerPersonner({{ $personne->id  }})"><i class="fa fa-check" title="Valider"></i></button>
                         @endif
-                            <button class="btn-sm btn-danger ml-3" wire:click="supprimerPersonne({{ $personne->id }})" title="Supprimer"><i class="fa fa-trash-o"></i></button>
+                            {{-- <button class="btn-sm btn-danger ml-3" wire:click="supprimerPersonne({{ $personne->id }})" title="Supprimer"><i class="fa fa-trash-o"></i></button> --}}
                         </td>
                       </tr>
 
@@ -224,4 +225,7 @@
         </div>
 		
 	</div>
+
+
+    @endif
 </div>

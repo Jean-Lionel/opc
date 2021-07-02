@@ -54,7 +54,7 @@ class PaimentLivewire extends Component
     			'compte_name' => $this->compte->name,
     			'compte_id' => $this->compte->id,
     			'person_id' => $this->compte->person->id,
-    			'type_cotisation' => 'INSCRIPTION',
+    			'type_cotisation' => $this->type_cotisation,
     			'transaction_code' => $this->generateTransactionCode()
 
     		]);
@@ -76,13 +76,15 @@ class PaimentLivewire extends Component
     	//this will generate 15 random number 
     	
     	$code = $comp = str_pad(rand(0,999999999999), 15,0,  STR_PAD_LEFT);
-
     	while (Paiment::where('transaction_code','=',$code )->first()) {
     		# code...
     		$code = $comp = str_pad(rand(0,999999999999), 15,0,  STR_PAD_LEFT);
     	}
-
     	return $code;
 
+    }
+
+    public function annulerPaiement($id){
+      Paiment::find($id)->delete();
     }
 }

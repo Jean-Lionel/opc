@@ -3,9 +3,7 @@
   <head>
     <title>OPC</title>
     <meta charset="utf-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         @livewireStyles
@@ -15,16 +13,11 @@
 
     <style>
       body{
-        background: #f9f9f9;
-        
         color: black;
       }
     </style>
-
-
   </head>
   <body class="container-fluid ml-0">
-    
     <div class="wrapper d-flex align-items-stretch">
       <nav id="sidebar">
         <div class="custom-menu">
@@ -55,10 +48,14 @@
             </li>
 
             <li>
-               <a href="{{ route('people.create') }}"> <i class="fa fa-users"></i> Membres agréés par l’OPC</a>
+               <a href="{{ route('people.index') }}"> <i class="fa fa-users"></i> Membres</a>
             </li>
 
             <li>
+               <a href="{{ route('paiment') }}"> <i class="fa fa-dollar"></i> Paiements </a>
+            </li>
+
+           {{--  <li>
                <a href="{{ route('people.index') }}"> <i class="fa fa-users"></i> Membres</a>
             </li>
 
@@ -66,9 +63,7 @@
               <a href="{{ route('cabinets') }}"> <i class="  fa fa-certificate"></i> Cabinets agréés par l’OPC</a>
             </li>
 
-            <li>
-               <a href="{{ route('paiment') }}"> <i class="fa fa-dollar"></i> Paiements des Cotisations</a>
-            </li>
+            
             <li>
                <a href="{{ route('create_formation') }}"> <i class="fa fa-book"></i> Formation</a>
             </li>
@@ -86,7 +81,7 @@
 
             <li>
               <a href="{{ route('rapport') }}"> <i class="fa fa-bar-chart"></i> Rapport</a>
-            </li>
+            </li> --}}
 
 
             <li>
@@ -121,14 +116,17 @@
        
       </div>
     </div>
-
-    @livewireScripts
+     @livewireScripts
+   
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/popper.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/print.min.js') }}"></script>
+    <script src="{{ asset('js/sweetalert2.all.min.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
 
     @yield('script')
+
+    @stack('scripts')
   </body>
 </html>

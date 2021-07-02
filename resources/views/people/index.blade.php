@@ -5,6 +5,4 @@
 <div class="container-fluid">
 	<livewire:person-livewire />
 </div>
-
-
 @endsection
