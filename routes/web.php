@@ -60,6 +60,8 @@ Route::middleware(['auth:sanctum'])->group(function(){
 	Route::resource('users',UserController::class);
 	Route::get('user-profil', [UserController::class, 'userProfil'])->name('user-profil');
 	Route::get('cabinets', [CabinetController::class, 'index'])->name('cabinets');
+
+	Route::view('create_formation','pages.formation')->name('create_formation');
 	Route::post('register-member',[MemberList::class, 'store'])->name('register-member');
 	Route::post("ajouter-membre", [MemberList::class,'ajouterMember'])->name("ajouter");
 	Route::post("ajouter-cabinet", [MemberList::class,'ajouterCabinet'])->name("ajouter_cabinet");

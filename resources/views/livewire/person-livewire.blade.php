@@ -148,6 +148,7 @@
                         <th>No d'ordre</th>
                         <th>Nom et Prénom</th>
                         <th>Numéro</th>
+                        <th>Status</th>
                         {{-- <th>Téléphone</th>
                         <th>TABLEAU</th>
                         <th>TABLEAU</th>
@@ -165,6 +166,7 @@
                         <td>{{ $personne->order_number }}</td>
                         <td>{{ $personne->first_name }}</td>
                         <td>{{ $personne->compte->name ?? "" }}</td>
+                        <td>STATUS</td>
                        {{--  <td>{{ $personne->telephone }}</td>
                         <td>{{ $personne->table_name }}</td>
                         <td>{{ $personne->nif }}</td>
@@ -177,7 +179,7 @@
 
                        @if($personne->valider !='VALIDER')
 
-                      <button class="btn btn-info" wire:click="validerPersonner({{ $personne->id  }})"><i class="fa fa-check"></i></button>
+                      <button class="btn btn-info" wire:click="validerPersonner({{ $personne->id  }})"><i class="fa fa-check" title="Valider"></i></button>
                         @endif
                             <button class="btn-sm btn-danger ml-3" wire:click="supprimerPersonne({{ $personne->id }})" title="Supprimer"><i class="fa fa-trash-o"></i></button>
                         </td>
