@@ -79,9 +79,11 @@
               <a href="{{ route('read-message') }}"> <i class="fa fa-commenting"></i> Contact</a>
             </li>
 
-            <li>
+             --}}
+
+             <li>
               <a href="{{ route('rapport') }}"> <i class="fa fa-bar-chart"></i> Rapport</a>
-            </li> --}}
+            </li>
 
 
             <li>

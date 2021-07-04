@@ -76,12 +76,9 @@ function exportTableToExcel(tableId, filename) {
                 // (you might convert them to &&& or something, then covert them back later)
                 // jsfiddle showing the issue https://jsfiddle.net/
                 var headers = lines[0].split(",");
-
                 for (var i = 1; i < lines.length; i++) {
-
                     var obj = {};
                     var currentline = lines[i].split(",");
-
                     for (var j = 0; j < headers.length; j++) {
                         obj[headers[j]] = currentline[j];
                     }

@@ -25,6 +25,7 @@ class PersonLivewire extends Component
 	public $telephone;
 	public $type_personne;
 	public $sexe;
+    public $status;
 	public $email;
 	public $searchKey;
     public $nif;
@@ -62,6 +63,7 @@ class PersonLivewire extends Component
         'nif' => 'required',
         'debut_activite' => 'required',
         'table_name' => 'required',
+        'status' => 'required',
         'order_number' => 'required',
     ];
 
@@ -70,6 +72,7 @@ class PersonLivewire extends Component
     	try {
     		DB::beginTransaction();
             if($this->identification){
+
                 $personne = Person::find($this->identification);
                 $personne->update([
                 'first_name' => $this->first_name,
@@ -82,6 +85,7 @@ class PersonLivewire extends Component
                 'order_number' => $this->order_number,
                 'debut_activite' => $this->debut_activite,
                 'table_name' => $this->table_name,
+                'status' => $this->status,
                 ]);
 
             }else{
@@ -96,25 +100,26 @@ class PersonLivewire extends Component
                 'order_number' => $this->order_number,
                 'debut_activite' => $this->debut_activite,
                 'table_name' => $this->table_name,
+                'status' => $this->status,
             ]);
+                $compte = Compte::create([
+                    'person_id' => $personne->id,
+                    'name' => $this->generateCompte(),
+                    'montant' => $personne->id
+
+                ]);
+                User::create([
+                'name' => $this->first_name,
+                'email' => $this->email,
+                'email_verified_at' => now(),
+                'compte_id' => $compte->id,
+                'role' => 'MEMBRE',
+                'password' => Hash::make('12345678'), // password
+                'remember_token' => Str::random(10),
+                ]);
             }
 
-    		$compte = Compte::create([
-    			'person_id' => $personne->id,
-    			'name' => $this->generateCompte(),
-    			'montant' => $personne->id
-
-    		]);
-
-            User::create([
-            'name' => $this->first_name,
-            'email' => $this->email,
-            'email_verified_at' => now(),
-            'compte' => $compte->id,
-            'role' => 'MEMBRE',
-            'password' => Hash::make('12345678'), // password
-            'remember_token' => Str::random(10),
-            ]);
+    		
 
     		$this->reset();
 

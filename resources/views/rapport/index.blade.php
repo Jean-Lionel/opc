@@ -124,13 +124,9 @@
 		fr.onload = function(){
 			//console.log(csvJSON(fr.result))
 			let loader = $("#loader")
-
-			loader.show()
-
+			//loader.show()
 			membres = csvJSON(fr.result);
-	
 			$.ajax({
-			
 			  url: '{{ route('ajouter')  }}',
 			  type: 'POST',
 			  // dataType: 'json',
@@ -165,7 +161,7 @@
 			});
 			
 		}
-		fr.readAsText(this.files[0], 'UTF-8');
+		fr.readAsText(this.files[0], 'ISO-8859-1');
 
 	})
 
@@ -224,17 +220,6 @@
 		fr.readAsText(this.files[0], 'ISO-8859-1');
 
 	})
-
-
-
-
-
-
-
-
-
-
-
 
 </script>
 

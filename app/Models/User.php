@@ -2,14 +2,15 @@
 
 namespace App\Models;
 
-use Laravel\Sanctum\HasApiTokens;
-use Laravel\Jetstream\HasProfilePhoto;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Laravel\Fortify\TwoFactorAuthenticatable;
+use App\Models\Compte;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Fortify\TwoFactorAuthenticatable;
+use Laravel\Jetstream\HasProfilePhoto;
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable 
 {
@@ -30,7 +31,8 @@ class User extends Authenticatable
         'email',
         'password',
         'user_name',
-        'role'
+        'role',
+        'compte_id'
     ];
 
     /**
@@ -63,6 +65,9 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+    public function compte(){
+        return $this->belongsTo(Compte::class,'compte_id','id');
+    }
     //CHECKING IF THE USER IS ADMIN
 
     //['DEFAULT', 'ADMINISTRATEUR','SECRETAIRE', 'COMPTABLE']

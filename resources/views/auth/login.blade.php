@@ -24,19 +24,15 @@
       <div class="row">
         <div class="col-md-6">
          <center>
-            <img src="img/Flag of Burundi.svg"  width="150" alt="Image" class="img-fluid">
+            
+             <img src="{{ asset('img/undraw_visual_data_re_mxxo.svg') }} " alt="" class="img-fluid">
          </center>
-          <div class="container pt-4 mt-4">
+          <div class="container ">
              <div class="text-center">
-              <strong style="font-size:20px;">Informations</strong>
+              <h2>Ordre des Professionnels Comptable du Burundi</h2>
             </div>
 
-           <div style="text-align:left;"> 
-
-             <p> 1. Click <strong>activate account link </strong> on the left side of this screen. </p> 
-             <p> 2. Type your email addresses used for communication with ICPAK (members only) </p> 
-             <p>3. Login to your email for an activation link sent to you</p> 
-             <p>4. Click on the first link to set your password and confirm</p> <p>5. Login to your Portal</p> </div>
+         
           </div>
         </div>
         <div class="col-md-6 contents">
@@ -51,14 +47,14 @@
                @csrf
                @method('post')
 
-              <div class="form-group first">
-                <label for="username">Email</label>
-                <input id="email" class="form-control" type="email" name="email" :value="old('email')" required autofocus>
+              <div class="mt-4">
+               
+                <input id="email" class="form-control" type="email" name="email" :value="old('email')" placeholder="EMAIL OU NOM D'UTILISATEUR" required autofocus>
 
               </div>
-              <div class="form-group last mb-4">
-                <label for="password">Password</label>
-                <input id="password" class="form-control" type="password" name="password" required autocomplete="current-password">
+              <div class="mt-4">
+               
+                <input id="password" placeholder="MOT DE PASSE" class="form-control" type="password" name="password" required autocomplete="current-password">
                 
               </div>
               

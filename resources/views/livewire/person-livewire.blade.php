@@ -119,6 +119,19 @@
     				</select>
     			</div>
 
+                <div class="form-group">
+                    <label for="">STATUS</label>
+
+                    <select class="form-control" name="" id="" wire:model="status">
+                        <option selected>Select ...</option>
+                        <option value="EN ORDRE">EN ORDRE</option>
+                        <option value="REDEVABLE">REDEVABLE</option>
+                        <option value="A RAYER">A RAYER</option>
+                    </select>
+                </div>
+
+
+
     			<div class="form-group">
     				<button type="submit" class="form-control btn-primary">Enregistrer</button>
     			</div>

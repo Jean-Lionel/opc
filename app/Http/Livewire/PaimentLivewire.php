@@ -41,26 +41,18 @@ class PaimentLivewire extends Component
     }
 
     public function savePaiment(){
-
     	$this->validate();
-
     	try {
-
     		DB::beginTransaction();
-
     		Paiment::create([
-
     			'montant' => $this->montant,
     			'compte_name' => $this->compte->name,
     			'compte_id' => $this->compte->id,
     			'person_id' => $this->compte->person->id,
     			'type_cotisation' => $this->type_cotisation,
     			'transaction_code' => $this->generateTransactionCode()
-
     		]);
-
     		DB::commit();
-
     		$this->reset();
     		
     	} catch (\Exception $e) {

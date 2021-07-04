@@ -5,8 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Cabinet;
 use App\Models\Compte;
 use App\Models\Person;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class MemberList extends Controller
 {
@@ -37,7 +41,6 @@ class MemberList extends Controller
      */
     public function create()
     {
-        //
         return view('people.register-form');
     }
 
@@ -48,8 +51,7 @@ class MemberList extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        
+    {  
         $request->validate( [
         'first_name' => 'required',
         'addresse' => 'required',
@@ -97,9 +99,35 @@ class MemberList extends Controller
 
         $data = $request->all();
         $content = json_decode($data['membres']); 
-        $a = $this->getMember($content );
-        Person::insert($a);
-        dump("Reussi");
+        $list_members = $this->getMember($content );
+
+        try {
+            DB::beginTransaction();
+            foreach($list_members as $membre){
+                $personne = Person::create($membre);
+                 $compte = Compte::create([
+                        'person_id' => $personne->id,
+                        'name' => $this->generateCompte(),
+                        'montant' => $personne->id
+
+                    ]);
+                    User::create([
+                    'name' =>  $personne->first_name,
+                    'email' => $personne->email,
+                    'user_name' =>  $personne->order_number,
+                    'email_verified_at' => now(),
+                    'compte_id' => $compte->id,
+                    'role' => 'MEMBRE',
+                    'password' => Hash::make('12345678'), // password
+                    'remember_token' => Str::random(10),
+                    ]);
+                }
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollback();
+            dd($e->getMessage());
+            
+        }
 
         return "OK";
     }
@@ -145,27 +173,25 @@ class MemberList extends Controller
 
             // dd($value->order_number);
             # code...
-
             if(isset($value->order_number)){
-
                  $xcode[] = [
 
-                  "order_number" => $value->order_number, 
-                  "first_name" => $value->first_name, 
-                  "addresse" => $value->addresse, 
-                  "sexe" => $value->sexe, 
-                  "email" => $value->email, 
-                  "telephone" => $value->telephone, 
-                  "nif" => $value->nif, 
-                  "type_personne" => $value->type_personne, 
-                  "debut_activite" => $value->debut_activite, 
-                  "table_name" => $value->table_name, 
+                  "order_number" => $value->order_number ?? null, 
+                  "first_name" => $value->first_name ?? null, 
+                  "addresse" => $value->addresse ?? null, 
+                  "sexe" => $value->sexe ?? null, 
+                  "email" => $value->email ?? null, 
+                  "telephone" => $value->telephone ?? null, 
+                  "nif" => $value->nif ?? null, 
+                  "type_personne" => $value->type_personne ?? null, 
+                  "debut_activite" => $value->debut_activite ?? null, 
+                  "table_name" => $value->table_name ?? null, 
+                  "status" => $value->status ?? null, 
                   "type_enregistrement" => 'IMPORTATION',
                   'created_at' => new \DateTime(), 
                   'updated_at' => new \DateTime(), 
                   // "updated_at" => Carbon::now(), 
                   // "deleted_at" =>null, 
-
             ];
 
             }
@@ -175,4 +201,8 @@ class MemberList extends Controller
         return $xcode;
 
     }
+
+
+   
+
 }
