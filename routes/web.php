@@ -34,6 +34,8 @@ Route::get('/send-email', function(){
 	echo "Email has been sent";
 });
 Route::get('site', [SiteController::class, 'index'])->name('site');
+
+
 Route::get('create-member', [SiteController::class, 'createMember']) ;
 Route::get('site-contact', [SiteController::class, 'contact'])->name("site-contact") ;
 Route::get('site-annuaire', [SiteController::class, 'annuaire'])->name("site-annuaire") ;
@@ -54,6 +56,8 @@ Route::middleware(['auth:sanctum'])->group(function(){
 	Route::resource('people', PersonController::class);
 	Route::get('read-message', [ContactController::class , 'index'])->name('read-message');
 	Route::get('paiment', [PersonController::class , 'paiment'])->name('paiment');
+	Route::get('completer-profil', [PersonController::class, 'completer'])->name('completer-profil');
+
 	Route::get('rapport', [RapportController::class, 'index'] )->name('rapport');
 	Route::resource('users',UserController::class);
 	Route::get('user-profil', [UserController::class, 'userProfil'])->name('user-profil');

@@ -87,4 +87,8 @@ class User extends Authenticatable
     public function isDefault(){
         return $this->role == 'DEFAULT';
     }
+
+     public function isMembre(){
+        return $this->role == 'MEMBRE';
+    }
 }

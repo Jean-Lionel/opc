@@ -24,14 +24,28 @@ class MemberList extends Controller
         //
         $search = \Request::get('key');
         $classement = \Request::get('classement');
-        $people = Person::where(function($query) use ( $search , $classement ){
-            $query->where('first_name', 'like', '%'. $search .'%');
-            if( $classement != null){
-                $query->where('first_name', 'like', '%'. $search .'%')
-                      ->where('table_name', '=', $classement);
-            }
-        })->orWhere('order_number', '=',$search )->paginate(80);  
-        return view('people.member-list', compact('people', 'search', 'classement'));
+        $status = \Request::get('status');
+
+
+
+        $people = Person::where(function($query) use ( $search , $classement,  $status ){
+             $query->where('first_name', 'like', '%'.$search .'%');
+
+            if($classement && $status){
+                $query->where('status', '=', $status)
+                      ->where('table_name', '=', $classement );
+             }
+            else if($classement)
+                $query->where('table_name', '=', $classement );
+
+            else if($status)
+                 $query->where('status', '=', $status);
+        })->paginate(50);
+
+       
+        
+
+        return view('people.member-list', compact('people', 'search', 'classement','status'));
     }
 
     /**
@@ -101,6 +115,7 @@ class MemberList extends Controller
         $content = json_decode($data['membres']); 
         $list_members = $this->getMember($content );
 
+
         try {
             DB::beginTransaction();
             foreach($list_members as $membre){
@@ -122,7 +137,7 @@ class MemberList extends Controller
                     'remember_token' => Str::random(10),
                     ]);
                 }
-            DB::commit();
+           DB::commit();
         } catch (\Exception $e) {
             DB::rollback();
             dd($e->getMessage());
@@ -166,12 +181,13 @@ class MemberList extends Controller
 
 
     private function getMember($data){
+        // dd($data[0]);
 
         $xcode = [];
 
         foreach ($data as $key => $value) {
 
-            // dd($value->order_number);
+            
             # code...
             if(isset($value->order_number)){
                  $xcode[] = [
@@ -193,7 +209,6 @@ class MemberList extends Controller
                   // "updated_at" => Carbon::now(), 
                   // "deleted_at" =>null, 
             ];
-
             }
            
         }

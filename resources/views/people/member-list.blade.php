@@ -11,7 +11,7 @@
 			margin-top: 20px;
 		}
 		table , td ,th,td {
-			border: 1px solid black;
+			border: 1px solid rgba(0, 0, 0, 0.19);
 			text-align: left;
 
 		}
@@ -20,7 +20,7 @@
 		}
 		#input-search,.content-principal select {	
 			padding: 6px;
-			width: 400px;
+			width: 200px;
 			margin-top: 8px;
 			margin-right: 16px;
 			font-size: 17px;
@@ -43,8 +43,6 @@
 
 	<div class="content-principal mt-3">
 		<h3 style="text-align: center;">Liste des Membres de l'OPC en 'ordre pour l'exercice 2021</h3>
-
-
 		<div>
 			<form action="" method="get">
 				<select  id="" name="classement">
@@ -52,11 +50,22 @@
 					@if($classement)
 					<option value="{{ $classement }}" selected="">{{ $classement }}</option>
 					@endif
-					<option value="A">Table A</option>
-					<option value="B">Table B</option>
-					<option value="C">Table C</option>
-					<option value="D">Table D</option>
-					<option value="STAGAIRE">STAGAIRE</option>
+					<option value="TABLEAU A">Table A</option>
+					<option value="TABLEAU B">Table B</option>
+					<option value="TABLEAU C">Table C</option>
+					<option value="TABLEAU D">Table D</option>
+					<option value="STAGIAIRE">STAGIAIRE</option>
+				</select>
+
+				<select name="status" id="">
+					<option value="">... select</option>
+					@if($status)
+					<option value="{{ $status }}" selected="">{{ $status }}</option>
+					@endif
+
+					<option value="REDEVABLE">REDEVABLE</option>
+					<option value="EN ORDRE">EN ORDRE</option>
+					<option value="A RAYER">A RAYER</option>
 				</select>
 
 				<input name="key" id="input-search" value="{{ $search ?? "" }}" type="text" placeholder="Rechercher..">
@@ -72,28 +81,36 @@
 					<tr>
 						<th>Numéro d'Ordre</th>
 						<th>Nom et prénom</th>
-						<th>Date d' Agrément</th>
-						<th>Classement</th>
-						<th>Téléphone</th>
-						<th>E-mail</th>
+						{{-- <th>Date d' Agrément</th>
+						<th>Classement</th> --}}
+						<th>STATUS</th>
+						<th>TABLEAU</th>
+						{{-- <th>E-mail</th> --}}
 					</tr>
 				</thead>
 
 				<tbody>
 					@foreach($people as $person)
-					<tr>
+
+					<tr @if($person->status == 'EN ORDRE') class="" @endif 
+						@if($person->status == 'REDEVABLE') class="bg-warning" @endif 
+						@if($person->status == 'A RAYER') class="bg-danger" @endif 
+						>
 						<td>{{ $person->order_number ?? "" }}</td>
 						<td>{{ $person->first_name ?? "" }}</td>
-						<td>{{ $person->debut_activite ?? "" }}</td>
+						{{-- <td>{{ $person->debut_activite ?? "" }}</td>
+						<td>{{ $person->table_name ?? "" }}</td> --}}
+						<td>{{ $person->status ?? "" }}</td>
 						<td>{{ $person->table_name ?? "" }}</td>
-						<td>{{ $person->telephone ?? "" }}</td>
-						<td>{{ $person->email ?? "" }}</td>
+						{{-- <td>{{ $person->email ?? "" }}</td> --}}
 
 					</tr>
 
 					@endforeach
 				</tbody>
 			</table>
+
+			{{ $people->links()}}
 		</div>
 	</div>
 

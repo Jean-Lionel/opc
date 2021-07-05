@@ -35,6 +35,8 @@ class PersonLivewire extends Component
     public $selectMember;
     public $showForm = false;
 
+
+
     public function toogleShowForm(){
         $this->showForm = ! $this->showForm;
 

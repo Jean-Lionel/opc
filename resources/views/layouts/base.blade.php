@@ -47,6 +47,7 @@
               <a class="hand" href="{{ route('user-profil') }}"><i class="fa fa-user"></i> <span>Mon Profil</span></a>
             </li>
 
+            @cannot('is-membre')
             <li>
                <a href="{{ route('people.index') }}"> <i class="fa fa-users"></i> Membres</a>
             </li>
@@ -90,13 +91,7 @@
               <a href="{{ route('users.index') }}"> <i class="fa fa-user-md"></i>  Utilisateur</a>
             </li>
 
-            <li>
-              <form action="{{ route('logout') }}" method="post">
-                @csrf
-                @method('post')
-                <button type="submit">Deconnexion</button>
-              </form>
-            </li>
+            @endcannot
           </ul>
 
         </div>
@@ -108,7 +103,20 @@
 
           <div class="text-right">
            <a href="#profile" class="mr-3 text-white"> <em class="fa fa-user"></em> <span>Welcome {{ Auth::user()->name }}</span> </a>
-           <a href="#" class="gwt-Anchor ml-2 text-white mr-1"><em class="fa fa-power-off"></em>  <span>LogOut</span></a>
+
+
+
+            <form action="{{ route('logout') }}" method="post" class="d-inline">
+              @csrf
+              @method('post')
+              <button type="submit" class="btn btn-default"> 
+                <em class="fa fa-power-off"></em>  <span>LogOut</span>
+              </button>
+              
+
+            </form>
+
+            
 
           </div>
         </div>

@@ -155,6 +155,17 @@
 
                 <button wire:click="toogleShowForm">Ajouter</button>
 
+                <div>
+                    <select name="" id="">
+                        <option value="TABLEAU A">TABLEAU A</option>
+                        <option value="TABLEAU B">TABLEAU B</option>
+                        <option value="TABLEAU C">TABLEAU C</option>
+                        <option value="TABLEAU D">TABLEAU D</option>
+                        <option value="STAGIAIRE">STAGIAIRE</option>
+                    </select>
+
+                    <input type="text" wire:model="searchKey" placeholder="Rechercher">
+                </div>
                 <table class="table  table-responsive">
                 <thead>
                     <tr>
@@ -162,9 +173,11 @@
                         <th>No d'ordre</th>
                         <th>Nom et Prénom</th>
                         <th>Numéro</th>
-                        <th>Status</th>
-                        {{-- <th>Téléphone</th>
                         <th>TABLEAU</th>
+                        <th>Status</th>
+
+                        {{-- <th>Téléphone</th>
+                        
                         <th>TABLEAU</th>
                         <th>NIF</th>
                         <th>TYPE</th> --}}
@@ -180,6 +193,7 @@
                         <td>{{ $personne->order_number }}</td>
                         <td>{{ $personne->first_name }}</td>
                         <td>{{ $personne->compte->name ?? "" }}</td>
+                        <td>{{ $personne->table_name ?? "" }}</td>
                         <td>{{ $personne->status }}</td>
                        {{--  <td>{{ $personne->telephone }}</td>
                         <td>{{ $personne->table_name }}</td>

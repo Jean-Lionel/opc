@@ -15,9 +15,12 @@
     					</div>
     					<div class="ml-3">
     						<h3>{{ Auth::user()->name }}</h3>
-    						<p>Categorie :  {{ $compte->person->table_name}}</p>
-    						<p>Status :  <span @if($compte->person->status == 'EN ORDRE') class="text-success" @endif>{{ $compte->person->status}} </span></p>
-    						<p>Payement : {{ $compte->type_personne }} </p>
+    						<p>Categorie :  {{ $compte->person->table_name ?? ""}}</p>
+    						<p>Status :  <span @if($compte->person->status ?? "" == 'EN ORDRE') class="text-success" @endif>{{ $compte->person->status ?? ""}} </span></p>
+    						<p>Payement : {{ $compte->type_personne  ?? ""}} </p>
+                            <p>
+                                <a href="{{ route('completer-profil')}}"> <i class="fa fa-edit"></i> Completer </a>
+                            </p>
     					</div>
     				</div>
     			</div>

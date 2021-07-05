@@ -17,6 +17,10 @@ class PersonController extends Controller
         return view('people.index');
     }
 
+    public function completer(){
+        
+    }
+
     public function paiment(){
         return view('people.paiment');
     }

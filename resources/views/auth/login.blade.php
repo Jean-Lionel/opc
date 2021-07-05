@@ -16,6 +16,12 @@
     <!-- Style -->
     <link rel="stylesheet" href="css/style1.css">
     <title>Opc Burundi</title>
+
+    <style>
+      input{
+        border: 1px solid black;
+      }
+    </style>
   </head>
   <body>
 
@@ -49,7 +55,11 @@
 
               <div class="mt-4">
                
-                <input id="email" class="form-control" type="email" name="email" :value="old('email')" placeholder="EMAIL OU NOM D'UTILISATEUR" required autofocus>
+                <input id="email" class="form-control" type="text" name="email" :value="old('email')" placeholder="EMAIL OU NOM D'UTILISATEUR" required autofocus>
+
+                @error('email')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
 
               </div>
               <div class="mt-4">
