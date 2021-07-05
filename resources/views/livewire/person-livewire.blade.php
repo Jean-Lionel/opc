@@ -63,12 +63,12 @@
 
                     <select wire:model="table_name" name="" id="" class="form-control">
                         <option value="">Select ...</option>
-                        <option value="A">TABLEAU A</option>
-                        <option value="B">TABLEAU B</option>
-                        <option value="C">TABLEAU C</option>
-                        <option value="D">TABLEAU D</option>
-                        <option value="S">STAGAIERE</option>
-                        <option value="CABINET">CABINET</option>
+                        <option value="TABLEAU A">TABLEAU A</option>
+                        <option value="TABLEAU B">TABLEAU B</option>
+                        <option value="TABLEAU C">TABLEAU C</option>
+                        <option value="TABLEAU D">TABLEAU D</option>
+                        <option value="STAGIAIRE">STAGIAIRE </option>
+                       
                     </select>
                    
                     @error('telephone')
@@ -233,7 +233,7 @@
 
                         <li class="list-group-item">No d'ordre :  {{ $selectMember->order_number }} </li>
                         <li class="list-group-item">Nom et Prénom: {{ $selectMember->first_name }} </li>
-                        <li class="list-group-item"> Numéro {{ $selectMember->num }} </li>
+                        <li class="list-group-item"> Numéro :  {{ $selectMember->compte->name}} </li>
                         <li class="list-group-item"> NIF  {{ $selectMember->nif }} </li>
                         <li class="list-group-item">TYPE {{ $selectMember->Numéro }} </li>
                         <li class="list-group-item"> ADDRESSE :  {{ $selectMember->addresse }} </li>

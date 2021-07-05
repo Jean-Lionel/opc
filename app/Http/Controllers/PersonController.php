@@ -18,7 +18,7 @@ class PersonController extends Controller
     }
 
     public function completer(){
-        
+        return view('people.completer');
     }
 
     public function paiment(){
