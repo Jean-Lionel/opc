@@ -14,9 +14,6 @@ class CabinetController extends Controller
      */
     public function index()
     {
-        //
-        
-
         return view('people.cabinet');
     }
 

@@ -16,9 +16,6 @@ class ContactController extends Controller
     {
         //
         $messages = Contact::all();
-
-
-
         return view('contact.index', compact('messages'));
     }
 

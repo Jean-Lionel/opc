@@ -116,6 +116,7 @@ class PersonLivewire extends Component
                 'email_verified_at' => now(),
                 'compte_id' => $compte->id,
                 'role' => 'MEMBRE',
+                'user_name' => $this->order_number,
                 'password' => Hash::make('12345678'), // password
                 'remember_token' => Str::random(10),
                 ]);

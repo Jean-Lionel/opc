@@ -2,8 +2,9 @@
 
 namespace App\Http\Livewire;
 
-use Livewire\Component;
+use App\Models\Compte;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Component;
 
 class CompleterProfil extends Component
 {
@@ -20,15 +21,57 @@ class CompleterProfil extends Component
     public $nif;
     public $debut_activite;
     public $table_name;
+    public $password;
     public $identification;
     public $selectMember;
-    
+
+
+    public function mount(){
+        $user = Auth::user();
+
+        $compte = Compte::where('id','=',  $user->compte_id)->first();
+         $personne = $compte->person;
+
+         $this->selectMember = $personne;
+
+        $this->first_name = $personne->first_name;
+        $this->order_number = $personne->order_number;
+        $this->last_name = $personne->last_name;
+        $this->addresse = $personne->ad;
+        $this->telephone = $personne->telephone;
+        $this->type_personne = $personne->type_personne;
+        $this->sexe = $personne->sexe;
+        $this->status = $personne->status;
+        $this->email = $personne->email;
+        $this->nif = $personne->nif;
+        $this->debut_activite = $personne->debut_activite;
+        $this->table_name = $personne->table_name;
+
+    }
+
 
     public function render()
     {
-        $user = Auth::user();
+        $user = null;
+        
         return view('livewire.completer-profil',[
             'user' => $user
         ]);
+    }
+
+    public function saveInformation(){
+
+        $personne = $this->selectMember;
+
+        $personne->addresse  = $this->addresse;
+        $personne->sexe = $this->sexe ;
+        $personne->email = $this->email ;
+        $personne->telephone = $this->telephone;
+        $personne->nif = $this->nif ;
+        $personne->type_personne = $this->type_personne ;
+        $personne->debut_activite = $this->debut_activite ;
+
+        $personne->save();
+        
     }
 }

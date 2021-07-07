@@ -12,7 +12,20 @@ class Person extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $guarded = [];
+    protected $fillable = [
+            "order_number" ,
+            "first_name" ,
+            "addresse" ,
+            "sexe" ,
+            "email" ,
+            "telephone" ,
+            "nif" ,
+            "type_personne" ,
+            "debut_activite" ,
+            "table_name" ,
+            "status" ,
+            "type_enregistrement"
+    ];
 
 
     public function compte(){

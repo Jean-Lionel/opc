@@ -97,7 +97,7 @@
 						@if($person->status == 'A RAYER') class="bg-danger" @endif 
 						>
 						<td>{{ $person->order_number ?? "" }}</td>
-						<td>{{ $person->first_name ?? "" }}</td>
+						<td>{{ strtoupper( $person->first_name) ?? "" }}</td>
 						{{-- <td>{{ $person->debut_activite ?? "" }}</td>
 						<td>{{ $person->table_name ?? "" }}</td> --}}
 						<td>{{ $person->status ?? "" }}</td>

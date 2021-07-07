@@ -1,20 +1,20 @@
 <div>
     {{-- Do your work, then step back. --}}
 
-    <form>
-            <form action="" wire:submit.prevent="savePersonne">
+   
+            <form action="" wire:submit.prevent="saveInformation">
             <div class="row">
                 <div class="col-md-5 mr-1">
                     <div class="form-group">
                         <label for="">Numéro d'ordre</label>
-                        <input class="form-control form-control-sm" type="text" wire:model="order_number">
+                        <input disabled="" class="form-control form-control-sm" type="text" wire:model="order_number">
                         @error('order_number')
                          <span class="error text-danger">{{ $message }}</span>
                         @enderror
                    </div>
                    <div class="form-group">
                         <label for="">Nom et Prénom</label>
-                        <input class="form-control" type="text" wire:model="first_name">
+                        <input disabled="" class="form-control" type="text" wire:model="first_name">
                          @error('first_name')
                         <span class="error text-danger">{{ $message }}</span>
                         @enderror
@@ -87,9 +87,20 @@
 
                     @enderror
                 </div> 
+                <div class="form-group">
+                    <label for="">Mot de passe</label>
+                    <input class="form-control" placeholder="ex: exemple@emple.bi" type="email" wire:model="password">
+
+                    @error('password')
+                    <span class="error text-danger">{{ $message }}</span>
+
+                    @enderror
+                </div> 
+
+
 
                 <div class="form-group">
-                    <button type="submit" class="form-control btn-primary">Enregistrer</button>
+                    <button type="submit"  class="form-control btn-primary">Modifier</button>
                 </div>
 
                 </div>
@@ -98,5 +109,5 @@
             </div>
         </form>
         
-    </form>
+  
 </div>

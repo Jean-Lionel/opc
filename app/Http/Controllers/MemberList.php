@@ -26,8 +26,6 @@ class MemberList extends Controller
         $classement = \Request::get('classement');
         $status = \Request::get('status');
 
-
-
         $people = Person::where(function($query) use ( $search , $classement,  $status ){
              $query->where('first_name', 'like', '%'.$search .'%');
 
@@ -40,10 +38,7 @@ class MemberList extends Controller
 
             else if($status)
                  $query->where('status', '=', $status);
-        })->paginate(50);
-
-       
-        
+        })->orWhere('order_number','=', $search)->paginate(50);
 
         return view('people.member-list', compact('people', 'search', 'classement','status'));
     }
@@ -115,16 +110,16 @@ class MemberList extends Controller
         $content = json_decode($data['membres']); 
         $list_members = $this->getMember($content );
 
-
         try {
             DB::beginTransaction();
             foreach($list_members as $membre){
                 $personne = Person::create($membre);
+
                  $compte = Compte::create([
                         'person_id' => $personne->id,
                         'name' => $this->generateCompte(),
-                        'montant' => $personne->id
-
+                        'montant' => doubleval($membre['montant']),
+                        'motif' => $membre['motif']
                     ]);
                     User::create([
                     'name' =>  $personne->first_name,
@@ -204,6 +199,8 @@ class MemberList extends Controller
                   "table_name" => $value->table_name ?? null, 
                   "status" => $value->status ?? null, 
                   "type_enregistrement" => 'IMPORTATION',
+                  "motif" => $value->motif ?? 0,
+                  "montant" => $value->montant ?? 0,
                   'created_at' => new \DateTime(), 
                   'updated_at' => new \DateTime(), 
                   // "updated_at" => Carbon::now(), 
