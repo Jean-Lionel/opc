@@ -27,35 +27,23 @@
           </button>
         </div>
         <div class="p-4 pt-5">
-
           <h1><a href="/" class="logo"><img src="{{ asset('images/OPC1-1.png') }}" width="200" alt=""></a></h1>
           <ul class="list-unstyled components mb-5">
-           {{--  <li class="active">
-              <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> <i class="   fa fa-header"></i> Home</a>
-              <ul class="collapse list-unstyled" id="homeSubmenu">
-                
-                <li>
-                    <a href="#">Home 2</a>
-                </li>
-                <li>
-                    <a href="#">Home 3</a>
-                </li>
-              </ul>
-            </li> --}}
-
             <li>
               <a class="hand" href="{{ route('user-profil') }}"><i class="fa fa-user"></i> <span>Mon Profil</span></a>
             </li>
-
-            @cannot('is-membre')
+            @canany(['is-admin', 'is-secretaire'])
             <li>
                <a href="{{ route('people.index') }}"> <i class="fa fa-users"></i> Membres</a>
             </li>
 
+            @endcanany
+
+            @canany(['is-comptable', 'is-admin'])
             <li>
                <a href="{{ route('paiment') }}"> <i class="fa fa-dollar"></i> Paiements </a>
             </li>
-
+            @endcanany
            {{--  <li>
                <a href="{{ route('people.index') }}"> <i class="fa fa-users"></i> Membres</a>
             </li>
@@ -63,8 +51,6 @@
             <li>
               <a href="{{ route('cabinets') }}"> <i class="  fa fa-certificate"></i> Cabinets agréés par l’OPC</a>
             </li>
-
-            
             <li>
                <a href="{{ route('create_formation') }}"> <i class="fa fa-book"></i> Formation</a>
             </li>
@@ -82,16 +68,19 @@
 
              --}}
 
+
              <li>
               <a href="{{ route('rapport') }}"> <i class="fa fa-bar-chart"></i> Rapport</a>
             </li>
+            
 
-
+            @can('is-admin')
             <li>
               <a href="{{ route('users.index') }}"> <i class="fa fa-user-md"></i>  Utilisateur</a>
             </li>
 
-            @endcannot
+            @endcan
+
           </ul>
 
         </div>

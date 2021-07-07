@@ -6,7 +6,7 @@
     		<h4 class="text-center">Ajouter un nouveau utiisateur</h4>
     			<div class="form-group">
     				<label for="">NOM ET PRENOM</label>
-    				<input type="text" class="" wire:model="name">
+    				<input type="text" class="form-control" class="" wire:model="name">
 
     				@error('name')
     				<span class="error text-danger">{{ $message }}</span>
@@ -15,7 +15,7 @@
 
     			<div class="form-group">
     				<label for="">EMAIL </label >
-    				<input type="email" class="" wire:model="email">
+    				<input type="email" class="form-control" wire:model="email">
 
     				@error('email')
     				<span class="error text-danger">{{ $message }}</span>
@@ -24,7 +24,7 @@
 
     			<div class="form-group">
     				<label for="">NOM D'UTILISATEUR</label>
-    				<input type="text" class="" wire:model="user_name">
+    				<input type="text" class="form-control" wire:model="user_name">
 
     				@error('user_name')
     				<span class="error text-danger">{{ $message }}</span>
@@ -33,7 +33,7 @@
 
     			<div class="form-group">
     				<label for="">MOT DE PASSE</label>
-    				<input type="text" class="" wire:model="password">
+    				<input type="password" class="form-control" wire:model="password">
 
     				@error('password')
     				<span class="error text-danger">{{ $message }}</span>
@@ -42,7 +42,7 @@
 
     			<div class="form-group">
     				<label for="">ROLE</label>
-    				<select name="" wire:model="role" id="" class="">
+    				<select name="" wire:model="role" id="" class="form-control">
     					<option value="">... SELECT</option>
     					@foreach($roles_users as  $role_user)
     					<option value="{{ $role_user }}">{{ $role_user }}</option>

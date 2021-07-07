@@ -18,13 +18,14 @@ class UserLivewire extends Component
 
 
 	public function mount(){
-		$this->roles_users = ['DEFAULT', 'ADMINISTRATEUR','SECRETAIRE', 'COMPTABLE'];
+       // 'MEMBRE',
+		$this->roles_users = [ 'ADMINISTRATEUR','SECRETAIRE', 'COMPTABLE'];
 
 	}
 
     public function render()
     {
-    	$users = User::latest()->paginate();
+    	$users = User::where('role','<>','MEMBRE')->latest()->paginate();
 
         return view('livewire.user-livewire',[
         	'users' => $users
@@ -43,7 +44,7 @@ class UserLivewire extends Component
     ];
 
     public function saveUser(){
-    	$this->validate();
+    	
 
     	if($this->identification)
     	{
@@ -55,7 +56,7 @@ class UserLivewire extends Component
     		$user->save();
 
     	}else{
-
+            $this->validate();
     	User::create([
 
     		'name' => $this->name,
@@ -76,7 +77,6 @@ class UserLivewire extends Component
     	$this->identification = $user->id;
     	$this->name = $user->name;
     	$this->email = $user->email;
-    	$this->password = $user->password;
     	$this->user_name = $user->user_name;
 
     }
