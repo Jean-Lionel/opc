@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Compte;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Illuminate\Support\Facades\Hash;
 
 class CompleterProfil extends Component
 {
@@ -70,6 +71,15 @@ class CompleterProfil extends Component
         $personne->nif = $this->nif ;
         $personne->type_personne = $this->type_personne ;
         $personne->debut_activite = $this->debut_activite ;
+
+        if($this->password && $this->email){
+            $password =  Hash::make($this->password);
+
+            $user = $personne->compte->user;
+            $user->password =  $password;
+            $user->email =  $this->email;
+            $user->save();
+        }
 
         $personne->save();
         

@@ -17,7 +17,9 @@ class CreateComptesTable extends Migration
             $table->id();
             $table->foreignId('person_id');
             $table->string('name');
+            $table->string('devise')->nullable();
             $table->double('montant',64,2);
+            $table->double('payement_annuel',64,2)->nullable();
             $table->string('motif')->nullable();
             $table->timestamps();
             $table->softDeletes();

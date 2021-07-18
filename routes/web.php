@@ -59,10 +59,12 @@ Route::middleware(['auth:sanctum'])->group(function(){
 	Route::get('completer-profil', [PersonController::class, 'completer'])->name('completer-profil');
 
 	Route::get('rapport', [RapportController::class, 'index'] )->name('rapport');
+	Route::get('cloturer', [RapportController::class, 'cloturer'] )->name('cloturer');
+
+	Route::get('liste-paiement', [RapportController::class, 'rapport'])->name('liste-paiement');
 	Route::resource('users',UserController::class)->middleware(['can:is-admin']);
 	Route::get('user-profil', [UserController::class, 'userProfil'])->name('user-profil');
 	Route::get('cabinets', [CabinetController::class, 'index'])->name('cabinets');
-
 	Route::view('create_formation','pages.formation')->name('create_formation');
 	Route::post('register-member',[MemberList::class, 'store'])->name('register-member');
 	Route::post("ajouter-membre", [MemberList::class,'ajouterMember'])->name("ajouter");

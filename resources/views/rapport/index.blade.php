@@ -11,11 +11,16 @@
 		</div>
 
 		<div class="col-md-3">
-			<button onclick="">Exporter la liste des cotsations des membres </button>
+			<a href="{{route('liste-paiement')}}">La liste des cotisations des membres</a>
+			
 		</div>
 
 		<div class="col-md-3">
 			<button onclick="exportTo()">Exporter la liste des membres  aggrées </button>
+		</div>
+
+		<div>
+			<a href="{{ route('cloturer') }}">Cloturer</a>
 		</div>
 
 		<div class="col-md-3 pt-4">
@@ -126,6 +131,7 @@
 			let loader = $("#loader")
 			//loader.show()
 			membres = csvJSON(fr.result);
+			//console.log(JSON.parse(membres))
 			$.ajax({
 			  url: '{{ route('ajouter')  }}',
 			  type: 'POST',
@@ -144,7 +150,6 @@
 			    	</div>
 
 			    	`)
-
 			    console.log(data)
 			  },
 			  error: function(xhr) {

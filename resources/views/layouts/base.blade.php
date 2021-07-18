@@ -44,6 +44,15 @@
                <a href="{{ route('paiment') }}"> <i class="fa fa-dollar"></i> Paiements </a>
             </li>
             @endcanany
+
+
+            @canany(['is-admin','is-secretaire'])
+
+            <li>
+               <a href="{{ route('create_formation') }}"> <i class="fa fa-book"></i> Formation</a>
+            </li>
+
+            @endcanany
            {{--  <li>
                <a href="{{ route('people.index') }}"> <i class="fa fa-users"></i> Membres</a>
             </li>
@@ -51,9 +60,7 @@
             <li>
               <a href="{{ route('cabinets') }}"> <i class="  fa fa-certificate"></i> Cabinets agréés par l’OPC</a>
             </li>
-            <li>
-               <a href="{{ route('create_formation') }}"> <i class="fa fa-book"></i> Formation</a>
-            </li>
+            
             <li>
                <a href="{{ route('create_formation') }}"> <i class="fa fa-book"></i> Articles</a>
             </li>
@@ -68,10 +75,13 @@
 
              --}}
 
+              @canany(['is-secretaire', 'is-admin'])
 
              <li>
               <a href="{{ route('rapport') }}"> <i class="fa fa-bar-chart"></i> Rapport</a>
             </li>
+
+             @endcanany
             
 
             @can('is-admin')
@@ -117,7 +127,7 @@
     </div>
      @livewireScripts
    
-    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-3.5.1.min.js') }}"></script>
     <script src="{{ asset('js/popper.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/print.min.js') }}"></script>

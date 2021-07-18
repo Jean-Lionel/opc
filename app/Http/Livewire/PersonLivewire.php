@@ -33,6 +33,7 @@ class PersonLivewire extends Component
     public $table_name;
     public $identification;
     public $selectMember;
+    public $searchTable;
     public $showForm = false;
 
 
@@ -44,11 +45,13 @@ class PersonLivewire extends Component
     public function render()
     {
     	$searchKey =  '%'.$this->searchKey.'%';
-        
-    	$personnes = Person::where(function($query) use($searchKey){
-    		$query->where('first_name','like',$searchKey);
+        $t = $this->searchTable;
+       // dump($t);
+    	$personnes = Person::where(function($query) use($t){
+            if($t)
+             $query->where('table_name','=',$t);
 
-    	})->latest()->paginate();
+    	})->where('first_name','like',$searchKey)->latest()->paginate();
         return view('livewire.person-livewire',[
         	'personnes' => $personnes
 

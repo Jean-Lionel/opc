@@ -65,16 +65,16 @@
                      <h5>Evénements & Agenda</h5>
                      <div>   
                         <dl class="row">
-                            <dd class="col-sm-4">Du 5 juillet jusqu’au 29 octobre 2021</dd>
-                            <dt class="col-sm-8">Accouting Training 
-                            </dt>
-                            <button>Participer</button>
-                            <hr>
                            
-                            <dd class="col-sm-4">7 juillet jusqu’au 11 juillet  2021</dd>
-                            <dt class="col-sm-8">IT / Program </dt>
-                            <button>Participer</button>
-                            <hr>
+                           @foreach ($formations as $formation)
+                               {{-- expr --}}
+
+                                <dd class="col-sm-4">{{$formation->date_debut}} jusqu’au {{$formation->date_fin}}</dd>
+                                <dt class="col-sm-8">{{$formation->title}}
+                                </dt>
+                                <a href="mailto:opc_bi@yahoo.fr" class="btn btn-default">Participer</a>
+                                <hr>
+                           @endforeach
                         </dl>
                     </div>                  
 

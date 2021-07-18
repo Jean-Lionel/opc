@@ -89,7 +89,7 @@
                 </div> 
                 <div class="form-group">
                     <label for="">Mot de passe</label>
-                    <input class="form-control" placeholder="ex: exemple@emple.bi" type="email" wire:model="password">
+                    <input class="form-control" placeholder="ex: RETTAPPER UN MOT DE PASSE FORT" type="password" wire:model="password">
 
                     @error('password')
                     <span class="error text-danger">{{ $message }}</span>

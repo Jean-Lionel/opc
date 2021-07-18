@@ -156,7 +156,8 @@
                 <button wire:click="toogleShowForm">Ajouter</button>
 
                 <div>
-                    <select name="" id="">
+                    <select wire:model="searchTable" name="" id="">
+                        <option value="">TOUT</option>
                         <option value="TABLEAU A">TABLEAU A</option>
                         <option value="TABLEAU B">TABLEAU B</option>
                         <option value="TABLEAU C">TABLEAU C</option>
@@ -234,13 +235,13 @@
                         <li class="list-group-item">No d'ordre :  {{ $selectMember->order_number }} </li>
                         <li class="list-group-item">Nom et Prénom: {{ $selectMember->first_name }} </li>
                         <li class="list-group-item"> Numéro :  {{ $selectMember->compte->name}} </li>
-                        <li class="list-group-item"> NIF  {{ $selectMember->nif }} </li>
+                        <li class="list-group-item"> NIF : {{ $selectMember->nif }} </li>
+                        <li class="list-group-item"> Cotisation Annuelle :  
+                         {{ $selectMember->compte->payement_annuel }} {{ $selectMember->compte->devise }} </li>
                         <li class="list-group-item">TYPE {{ $selectMember->Numéro }} </li>
                         <li class="list-group-item"> ADDRESSE :  {{ $selectMember->addresse }} </li>
                         <li class="list-group-item"> Tableau :  {{ $selectMember->table_name }} </li>
                         <li class="list-group-item"> TELEPHONE : {{ $selectMember->telephone }} </li>
-
-                      
                         <li class="list-group-item"> EMAIL : {{ $selectMember->email }} </li>
                     </ul>
                     

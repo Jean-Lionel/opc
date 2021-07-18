@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Formation extends Model
 {
@@ -16,6 +17,6 @@ class Formation extends Model
 
         self::creating(function($model){
             $model->user_id = Auth::user()->id;
-        })
+        });
     }
 }

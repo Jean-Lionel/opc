@@ -119,6 +119,8 @@ class MemberList extends Controller
                         'person_id' => $personne->id,
                         'name' => $this->generateCompte(),
                         'montant' => doubleval($membre['montant']),
+                        'payement_annuel' => doubleval($membre['payement_annuel']),
+                        'devise' => $membre['devise'],
                         'motif' => $membre['motif']
                     ]);
                     User::create([
@@ -201,6 +203,9 @@ class MemberList extends Controller
                   "type_enregistrement" => 'IMPORTATION',
                   "motif" => $value->motif ?? 0,
                   "montant" => $value->montant ?? 0,
+                  "payement_annuel" => $value->payement_annuel ?? 0,
+                  "devise" => $value->devise ?? 0,
+                  "type_table" => $value->type_table ?? 0,
                   'created_at' => new \DateTime(), 
                   'updated_at' => new \DateTime(), 
                   // "updated_at" => Carbon::now(), 

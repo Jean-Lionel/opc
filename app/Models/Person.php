@@ -24,6 +24,7 @@ class Person extends Model
             "debut_activite" ,
             "table_name" ,
             "status" ,
+            "type_table" ,
             "type_enregistrement"
     ];
 
@@ -35,6 +36,8 @@ class Person extends Model
     public function getFullNameAttribute(){
     	return $this->first_name . ' ' . $this->last_name;
     }
+
+    
 
 
 }

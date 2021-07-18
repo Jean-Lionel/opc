@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cabinet;
+use App\Models\Formation;
 use Illuminate\Http\Request;
 
 class SiteController extends Controller
@@ -10,7 +11,9 @@ class SiteController extends Controller
 	
 	public function index(){
 
-		return view("site.index");
+		$formations = Formation::latest()->paginate(3);
+
+		return view("site.index", compact('formations'));
 	}
 	public function condition(){
 

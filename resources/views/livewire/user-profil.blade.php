@@ -18,10 +18,11 @@
                             @can('is-membre')
     					<div class="ml-3">
     						<h3>{{ Auth::user()->name }}</h3>
-    						<p>Categorie :  {{ $compte->person->table_name ?? ""}}</p>
+    						<p>Categorie :  {{ $compte->person->table_name ?? ""}}  |  CATEGORIE : {{ $compte->person->type_table}}</p>
+                            <p>PAYEMMENT ANNUELLE : {{ $compte->payement_annuel }} # {{$compte->devise}}</p>
     						<p>Status :  <span @if($compte->person->status ?? "" == 'EN ORDRE') class="text-success" @endif>{{ $compte->person->status ?? ""}} </span></p>
     						<p>Montant dû :   <b> {{ $compte->montant }}</b> #FBU   </p>
-
+                            <p>DEVISE  : {{$compte->devise}}</p>
                             <p>
                                 
                                 Libellé  :   <b>{{ $compte->motif }} </b> 
