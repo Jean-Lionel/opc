@@ -21,6 +21,7 @@ class PersonLivewire extends Component
 	public $first_name;
 	public $order_number;
 	public $last_name;
+    public $montant;
 	public $addresse;
 	public $telephone;
 	public $type_personne;
@@ -28,12 +29,14 @@ class PersonLivewire extends Component
     public $status;
 	public $email;
 	public $searchKey;
+    public $motif;
     public $nif;
     public $debut_activite;
     public $table_name;
     public $identification;
     public $selectMember;
     public $searchTable;
+    public $devise;
     public $showForm = false;
 
 
@@ -51,7 +54,7 @@ class PersonLivewire extends Component
             if($t)
              $query->where('table_name','=',$t);
 
-    	})->where('first_name','like',$searchKey)->latest()->paginate();
+    	})->where('first_name','like',$searchKey)->paginate(10);
         return view('livewire.person-livewire',[
         	'personnes' => $personnes
 
@@ -60,16 +63,16 @@ class PersonLivewire extends Component
 
     protected $rules = [
     	'first_name' => 'required',
-    	'addresse' => 'required',
-    	'telephone' => 'required',
-    	'type_personne' => 'required',
-    	'sexe' => 'required',
-    	'email' => 'required',
-        'nif' => 'required',
-        'debut_activite' => 'required',
-        'table_name' => 'required',
-        'status' => 'required',
-        'order_number' => 'required',
+    	// 'addresse' => 'required',
+    	// 'telephone' => 'required',
+    	// 'type_personne' => 'required',
+    	// 'sexe' => 'required',
+    	// 'email' => 'required',
+     //    'nif' => 'required',
+     //    'debut_activite' => 'required',
+           'table_name' => 'required',
+           'status' => 'required',
+     //    'order_number' => 'required',
     ];
 
     public function savePersonne(){
@@ -77,6 +80,7 @@ class PersonLivewire extends Component
     	try {
     		DB::beginTransaction();
             if($this->identification){
+                    //dd($this->devise);
 
                 $personne = Person::find($this->identification);
                 $personne->update([
@@ -92,6 +96,10 @@ class PersonLivewire extends Component
                 'table_name' => $this->table_name,
                 'status' => $this->status,
                 ]);
+
+                $personne->compte->devise = $this->devise;
+                $personne->compte->motif = $this->motif;
+                $personne->compte->save();
 
             }else{
                 $personne = Person::create([
@@ -110,7 +118,9 @@ class PersonLivewire extends Component
                 $compte = Compte::create([
                     'person_id' => $personne->id,
                     'name' => $this->generateCompte(),
-                    'montant' => $personne->id
+                    'montant' => $personne->id,
+                    'devise' => $this->devise,
+                    'motif' => $this->motif,
 
                 ]);
                 User::create([
@@ -145,12 +155,15 @@ class PersonLivewire extends Component
     public function modifierPersonne($id){
         $person = Person::find($id);
         $this->identification = $person->id;
+        $this->status = $person->status;
+        $this->montant = $person->compte->montant;
         $this->first_name = $person->first_name;
         $this->order_number = $person->order_number;
         $this->telephone = $person->telephone;
         $this->addresse = $person->addresse;
         $this->type_personne = $person->type_personne;
         $this->sexe = $person->sexe;
+        $this->motif = $person->compte->motif;
         $this->nif = $person->nif;
         $this->email = $person->email;
         $this->debut_activite = $person->debut_activite;

@@ -17,6 +17,7 @@ class CreatePaimentsTable extends Migration
             $table->id();
             $table->double('montant',64,2);
             $table->string('compte_name');
+            $table->text('description')->nullable();
             $table->foreignId('person_id');
             $table->foreignId('compte_id');
             $table->foreignId('user_id');

@@ -34,29 +34,62 @@
     				@enderror
     			 </div>
 
-    			 <div class="form-group">
-    				<label for="">Province/Commune/Quartier</label>
-    				<input class="form-control" type="text" wire:model="addresse" placeholder="ex: Bujumbura/Ntahangwa/Kigobe">
-
-    				@error('addresse')
-    				<span class="error text-danger">{{ $message }}</span>
-
-    				@enderror
-    			</div>
-
+    			
 
     			<div class="form-group">
     				<label for="">Téléphone</label>
     				<input class="form-control" placeholder="ex: +257 79 000 000" type="text" wire:model="telephone">
-
     				@error('telephone')
     				<span class="error text-danger">{{ $message }}</span>
 
     				@enderror
     			</div>
 
+
+                 <div class="form-group">
+                    <label for="">Montant dû</label>
+                    <input class="form-control" placeholder="" type="text" wire:model="montant">
+                    @error('montant')
+                    <span class="error text-danger">{{ $message }}</span>
+
+                    @enderror
+                </div>
+
+
+                 <div class="form-group">
+                    <label for="devise">DEVISE</label>
+                    <select name="" wire:model="devise" id="devise" class="form-control">
+                        <option value="FBU"> FBU</option>
+                        <option value="$">$ (Dollars)</option>
+                    </select>
+                    @error('devise')
+                    <span class="error text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+
+
+                <div class="form-group">
+                    <label for="">Motif</label>
+                    <input class="form-control" placeholder="" type="text" wire:model="motif">
+                    @error('motif')
+                    <span class="error text-danger">{{ $message }}</span>
+
+                    @enderror
+                </div>
+
+
+
 				</div>
 				<div class="col-md-5 ">
+                    <div class="form-group">
+                        <label for="">Province/Commune/Quartier</label>
+                        <input class="form-control" type="text" wire:model="addresse" placeholder="ex: Bujumbura/Ntahangwa/Kigobe">
+
+                        @error('addresse')
+                        <span class="error text-danger">{{ $message }}</span>
+
+                        @enderror
+                    </div>
 
 					<div class="form-group">
                     <label for="">Tableau</label>
@@ -129,32 +162,18 @@
                         <option value="A RAYER">A RAYER</option>
                     </select>
                 </div>
-
-
-
     			<div class="form-group">
     				<button type="submit" class="form-control btn-primary">Enregistrer</button>
     			</div>
-
 				</div>
-
-
 			</div>
 		</form>
-		
-
 	</div>
-
     @else
-
-
-
 	<div class="">
         <div class="row">
             <div class="col-md-8">
-
                 <button wire:click="toogleShowForm">Ajouter</button>
-
                 <div>
                     <select wire:model="searchTable" name="" id="">
                         <option value="">TOUT</option>
@@ -238,7 +257,8 @@
                         <li class="list-group-item"> NIF : {{ $selectMember->nif }} </li>
                         <li class="list-group-item"> Cotisation Annuelle :  
                          {{ $selectMember->compte->payement_annuel }} {{ $selectMember->compte->devise }} </li>
-                        <li class="list-group-item">TYPE {{ $selectMember->Numéro }} </li>
+                         <li class="list-group-item">Montant dû : {{ $selectMember->compte->montant }} {{ $selectMember->compte->devise }}   ({{ $selectMember->compte->motif }})</li>
+                        <li class="list-group-item">TYPE :  {{ $selectMember->type_table }} </li>
                         <li class="list-group-item"> ADDRESSE :  {{ $selectMember->addresse }} </li>
                         <li class="list-group-item"> Tableau :  {{ $selectMember->table_name }} </li>
                         <li class="list-group-item"> TELEPHONE : {{ $selectMember->telephone }} </li>

@@ -44,6 +44,7 @@
                             <th>CODE DE TRANSACTION</th>
                             <th>MONTANT</th>
                             <th>MOTIF</th>
+                            <th>DESCRIPTION</th>
                         </tr>
                         
                         @foreach ($paiments as $element)
@@ -54,6 +55,7 @@
                                <td>{{ $element->transaction_code }}</td>
                                   <td>{{ $element->montant }}</td>
                                <td>{{ $element->type_cotisation }}</td>
+                               <td>{{ $element->description }}</td>
                            </tr>
                         @endforeach
                     </table>

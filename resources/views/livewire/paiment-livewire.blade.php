@@ -36,6 +36,9 @@
     						@error('montant')
     						<p class="error text-danger">{{ $message }}</p>
     						@enderror
+
+                            <label for="">Description</label>
+                            <textarea wire:model="description" class="form-control"></textarea>
     						<button class="btn-info btn mt-3">Valider</button>
 
     					</div>
@@ -57,6 +60,7 @@
                         <th>CODE DE TRANSACTION</th>
                         <th>NOM ET PRENOM</th>
                         <th>MONTANT</th>
+                        <th>DESCRIPTION</th>
                         <th>COMPTE</th>
                         <th>TYPE DE COTISATION</th>
                         <th>ACTION</th>
@@ -71,10 +75,10 @@
                         <td>{{ $paiment->transaction_code }}</td>
                         <td>{{ $paiment->person->fullName }}</td>
                         <td>{{ number_format($paiment->montant) }}</td>
+                        <td>{{ $paiment->description }}</td>
                         <td>{{ $paiment->compte_name }}</td>
                         <td>{{ $paiment->type_cotisation }}</td>
                         <td>
-                    
                             <button class="btn-sm btn-info" wire:click="$emit('confirmValidation',{{$paiment->id}})">Annuler</button>
                         </td>
                         

@@ -17,6 +17,7 @@ class PaimentLivewire extends Component
 	public $type_cotisation;
 	public $compte;
     public $searchValue;
+    public $description;
 
     public function render()
     {
@@ -46,6 +47,7 @@ class PaimentLivewire extends Component
     		DB::beginTransaction();
     		Paiment::create([
     			'montant' => $this->montant,
+                'description' => $this->description,
     			'compte_name' => $this->compte->name,
     			'compte_id' => $this->compte->id,
     			'person_id' => $this->compte->person->id,

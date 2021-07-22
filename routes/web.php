@@ -1,3 +1,4 @@
+
 <?php
 
 use App\Http\Controllers\CabinetController;
@@ -28,7 +29,7 @@ Route::view('formation','site.formation')->name('formation');
 Route::get('/send-email', function(){
 	$details = [
 		'title' => 'Mail from HACKER',
-		'body' => 'This is a simple email for jean lionel'
+		'body' => 'This is a simple email from jean lionel'
 	];
 	\Mail::to('bigirimanajeanleonard@gmail.com')->send(new TestMail($details));
 	echo "Email has been sent";
